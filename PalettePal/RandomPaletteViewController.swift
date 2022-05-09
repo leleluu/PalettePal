@@ -38,7 +38,6 @@ class RandomPaletteViewController: UIViewController {
         layout.itemSize = CGSize(width: collectionView.frame.width, height: 100)
     }
     
-    
     // MARK: - Private Methods
     
     private func setupViews() {
@@ -58,8 +57,6 @@ class RandomPaletteViewController: UIViewController {
     @objc private func didTapGenerateRandomPaletteButton() {
         
         apiClient.fetchRandomPalette { palette in
-
-            print("palette: \(palette)")
             let newColorPalette = palette.result.map { rgb in
                 UIColor(rgb: rgb)
             }
@@ -85,6 +82,8 @@ extension RandomPaletteViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.id, for: indexPath) as! ColorCell
         let color = randomColorPalette[indexPath.row]
         cell.backgroundColor = color
+        cell.rgbLabel.text = color.rgbString
+        cell.hexLabel.text = color.hexString
         return cell
     }
     
