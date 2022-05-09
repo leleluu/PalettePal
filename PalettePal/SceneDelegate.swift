@@ -21,6 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             paletteCollectionViewController
         ]
         
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarController.tabBar.standardAppearance = tabBarAppearance
+        tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+        
         let navigationController = UINavigationController(rootViewController: tabBarController)
         window?.rootViewController = navigationController
         
