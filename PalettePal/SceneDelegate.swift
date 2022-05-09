@@ -27,6 +27,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         
         let navigationController = UINavigationController(rootViewController: tabBarController)
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationController.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController.navigationBar.scrollEdgeAppearance =  navigationBarAppearance
+        
+
         window?.rootViewController = navigationController
         
         window?.makeKeyAndVisible()
