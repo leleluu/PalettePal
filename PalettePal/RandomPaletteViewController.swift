@@ -4,6 +4,10 @@ class RandomPaletteViewController: UIViewController {
 
     // MARK: - Private Properties
     
+    private let apiClient = APIClient()
+    
+    private var randomColorPalette: [UIColor] = []
+    
     private lazy var generateRandomPaletteButton: UIButton = {
         let button = UIButton()
         button.setTitle("random color palette button", for: .normal)
@@ -35,6 +39,14 @@ class RandomPaletteViewController: UIViewController {
     
     @objc private func didTapGenerateRandomPaletteButton() {
         
+        apiClient.fetchRandomPalette { palette in
+
+            print("palette: \(palette)")
+            let newColorPalette = palette.result.map { rgb in
+                UIColor(rgb: rgb)
+            }
+        }
     }
+    
 }
 
