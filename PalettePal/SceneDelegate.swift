@@ -9,8 +9,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let vc = ViewController()
-        let navigationController = UINavigationController(rootViewController: vc)
+        let tabBarController = UITabBarController()
+        let randomPaletteViewController = RandomPaletteViewController()
+        randomPaletteViewController.tabBarItem = UITabBarItem(title: "explore", image: UIImage(systemName: "lightbulb"), tag: 0)
+        
+        let paletteCollectionViewController = PaletteCollectionViewController()
+        paletteCollectionViewController.tabBarItem = UITabBarItem(title: "palettes", image: UIImage(systemName: "heart"), tag: 1)
+        
+        tabBarController.viewControllers = [
+            randomPaletteViewController,
+            paletteCollectionViewController
+        ]
+        
+        let navigationController = UINavigationController(rootViewController: tabBarController)
         window?.rootViewController = navigationController
         
         window?.makeKeyAndVisible()
