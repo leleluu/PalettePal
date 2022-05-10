@@ -13,7 +13,7 @@ class RandomPaletteViewController: UIViewController {
         button.setTitle("random color palette button", for: .normal)
         button.backgroundColor = UIColor.systemYellow
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(didTapGenerateRandomPaletteButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapGenerateRandomPalette), for: .touchUpInside)
         return button
     }()
     
@@ -32,7 +32,7 @@ class RandomPaletteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didTapSaveButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didTapSave))
         setupViews()
         showRandomPalette()
     }
@@ -70,11 +70,11 @@ class RandomPaletteViewController: UIViewController {
         }
     }
     
-    @objc private func didTapGenerateRandomPaletteButton() {
+    @objc private func didTapGenerateRandomPalette() {
         showRandomPalette()
     }
     
-    @objc private func didTapSaveButton() {
+    @objc private func didTapSave() {
         print("didtapsave")
         let editPaletteViewController = EditPaletteViewController()
         let navController = UINavigationController(rootViewController: editPaletteViewController)
