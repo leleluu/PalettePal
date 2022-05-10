@@ -20,6 +20,7 @@ class RandomPaletteViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.alwaysBounceVertical = true
         collectionView.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.id)
         collectionView.dataSource = self
         
