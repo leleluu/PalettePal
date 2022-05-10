@@ -10,15 +10,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let tabBarController = UITabBarController()
+        
         let randomPaletteViewController = RandomPaletteViewController()
-        randomPaletteViewController.tabBarItem = UITabBarItem(title: "explore", image: UIImage(systemName: "lightbulb"), tag: 0)
+        let randomPaletteNavigationController = UINavigationController(rootViewController: randomPaletteViewController)
+        
+        randomPaletteNavigationController.tabBarItem = UITabBarItem(title: "explore", image: UIImage(systemName: "lightbulb"), tag: 0)
+        
         
         let paletteCollectionViewController = PaletteCollectionViewController()
-        paletteCollectionViewController.tabBarItem = UITabBarItem(title: "palettes", image: UIImage(systemName: "heart"), tag: 1)
+        let paletteCollectionNavigationController = UINavigationController(rootViewController: paletteCollectionViewController)
+        
+        paletteCollectionNavigationController.tabBarItem = UITabBarItem(title: "palettes", image: UIImage(systemName: "heart"), tag: 1)
         
         tabBarController.viewControllers = [
-            randomPaletteViewController,
-            paletteCollectionViewController
+            randomPaletteNavigationController,
+            paletteCollectionNavigationController
         ]
         
         let tabBarAppearance = UITabBarAppearance()
@@ -26,14 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.tabBar.standardAppearance = tabBarAppearance
         tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         
-        let navigationController = UINavigationController(rootViewController: tabBarController)
-        let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.configureWithOpaqueBackground()
-        navigationController.navigationBar.standardAppearance = navigationBarAppearance
-        navigationController.navigationBar.scrollEdgeAppearance =  navigationBarAppearance
-        
-
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabBarController
         
         window?.makeKeyAndVisible()
     }
