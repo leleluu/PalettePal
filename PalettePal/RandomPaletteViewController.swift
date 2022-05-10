@@ -31,6 +31,7 @@ class RandomPaletteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didTapSaveButton))
         setupViews()
         showRandomPalette()
     }
@@ -72,9 +73,13 @@ class RandomPaletteViewController: UIViewController {
         showRandomPalette()
     }
     
+    @objc private func didTapSaveButton() {
+        print("didtapsave")
+    }
+    
 }
 
-// MARK:- UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 
 extension RandomPaletteViewController: UICollectionViewDataSource {
     
