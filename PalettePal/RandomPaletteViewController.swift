@@ -32,6 +32,7 @@ class RandomPaletteViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupViews()
+        showRandomPalette()
     }
     
     override func viewDidLayoutSubviews() {
@@ -54,8 +55,7 @@ class RandomPaletteViewController: UIViewController {
         ])
     }
     
-    @objc private func didTapGenerateRandomPaletteButton() {
-        
+    private func showRandomPalette() {
         apiClient.fetchRandomPalette { palette in
             let newColorPalette = palette.result.map { rgb in
                 UIColor(rgb: rgb)
@@ -66,6 +66,10 @@ class RandomPaletteViewController: UIViewController {
                 self.collectionView.reloadData()
             }
         }
+    }
+    
+    @objc private func didTapGenerateRandomPaletteButton() {
+        showRandomPalette()
     }
     
 }
