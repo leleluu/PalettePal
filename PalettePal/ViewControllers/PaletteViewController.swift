@@ -6,11 +6,16 @@ class PaletteViewController: UIViewController {
     
     private var palette: [UIColor]
     
-    private lazy var swatch: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        return view
+    private lazy var paletteCard: PaletteCard = {
+        let card = PaletteCard()
+        card.translatesAutoresizingMaskIntoConstraints = false
+        card.backgroundColor = .yellow
+        card.stackView.subviews[0].backgroundColor = palette[0]
+        card.stackView.subviews[1].backgroundColor = palette[1]
+        card.stackView.subviews[2].backgroundColor = palette[2]
+        card.stackView.subviews[3].backgroundColor = palette[3]
+        card.stackView.subviews[4].backgroundColor = palette[4]
+        return card
     }()
     
     // MARK: - Initialization
@@ -37,14 +42,14 @@ class PaletteViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupViews() {
-        view.addSubview(swatch)
-        swatch.backgroundColor = palette[0]
+        view.addSubview(paletteCard)
+        paletteCard.backgroundColor = palette[0]
         
         NSLayoutConstraint.activate([
-            swatch.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            swatch.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            swatch.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            swatch.heightAnchor.constraint(equalToConstant: 100)
+            paletteCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            paletteCard.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            paletteCard.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            paletteCard.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
