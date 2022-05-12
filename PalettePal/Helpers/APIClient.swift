@@ -2,7 +2,7 @@ import Foundation
 
 class APIClient {
     
-    func fetchRandomPalette(completion: @escaping ((Palette) -> Void)) {
+    func fetchRandomPalette(completion: @escaping ((ColorMindPalette) -> Void)) {
         
         let url = URL(string: "http://colormind.io/api/")
         var request = URLRequest(url: url!)
@@ -13,7 +13,7 @@ class APIClient {
             data, response, error in
             
             let decoder = JSONDecoder()
-            let result = try! decoder.decode(Palette.self, from: data!)
+            let result = try! decoder.decode(ColorMindPalette.self, from: data!)
             completion(result)
         }
         task.resume()
@@ -23,6 +23,6 @@ class APIClient {
 
 // MARK: - Model
 
-struct Palette: Decodable {
+struct ColorMindPalette: Decodable {
     let result: [[Int]]
 }

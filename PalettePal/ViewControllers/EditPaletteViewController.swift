@@ -70,8 +70,14 @@ class EditPaletteViewController: UIViewController {
     }
     
     @objc private func didTapSave() {
-        print("tapped save")
-        print(palette)
+        
+        if let name = nameTextField.text, nameTextField.text?.isEmpty == false {
+            let newPalette = Palette(name: name, colors: palette)
+            Palettes.addPalette(palette: newPalette)
+        } else {
+        // TODO: Show error when text field is empty and also treat textfield with white space as empty
+            print("text field is empty, show error")
+        }
         
         dismiss(animated: true)
     }
