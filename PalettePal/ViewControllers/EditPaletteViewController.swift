@@ -1,6 +1,6 @@
 import UIKit
 
-class PaletteViewController: UIViewController {
+class EditPaletteViewController: UIViewController {
     
     // MARK: - Private Properties
     
@@ -85,7 +85,7 @@ class PaletteViewController: UIViewController {
 
 // MARK: - UITextFieldDelegate
 
-extension PaletteViewController: UITextFieldDelegate {
+extension EditPaletteViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
