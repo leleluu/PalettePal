@@ -5,23 +5,13 @@ class PaletteViewController: UIViewController {
     // MARK: - Private Properties
     
     private var palette: [UIColor]
-    
-    private lazy var paletteCard: PaletteCard = {
-        let card = PaletteCard()
-        card.translatesAutoresizingMaskIntoConstraints = false
-        card.backgroundColor = .yellow
-        card.stackView.subviews[0].backgroundColor = palette[0]
-        card.stackView.subviews[1].backgroundColor = palette[1]
-        card.stackView.subviews[2].backgroundColor = palette[2]
-        card.stackView.subviews[3].backgroundColor = palette[3]
-        card.stackView.subviews[4].backgroundColor = palette[4]
-        return card
-    }()
+    private var paletteCard: PaletteCard
     
     // MARK: - Initialization
     
     init(palette: [UIColor], name: String) {
         self.palette = palette
+        self.paletteCard = PaletteCard(palette: palette)
         super.init(nibName: nil, bundle: nil)
         self.title = name
     }
@@ -43,7 +33,7 @@ class PaletteViewController: UIViewController {
     
     private func setupViews() {
         view.addSubview(paletteCard)
-        paletteCard.backgroundColor = palette[0]
+        paletteCard.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             paletteCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

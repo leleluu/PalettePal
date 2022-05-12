@@ -4,18 +4,11 @@ class PaletteCard: UIView {
     
     // MARK: - Properties
     
-    let stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            UIView(),
-            UIView(),
-            UIView(),
-            UIView(),
-            UIView(),
-        ])
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 0
         stackView.distribution = .fillEqually
-        stackView.backgroundColor = .yellow
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -26,6 +19,15 @@ class PaletteCard: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
+    }
+    
+    init(palette: [UIColor]) {
+        self.init()
+        for color in palette {
+            let view = UIView()
+            view.backgroundColor = color
+            stackView.addArrangedSubview(view)
+        }
     }
     
     required init?(coder: NSCoder) {
