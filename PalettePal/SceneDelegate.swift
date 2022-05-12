@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         randomPaletteNavigationController.tabBarItem = UITabBarItem(title: "explore", image: UIImage(systemName: "lightbulb"), tag: 0)
         
         
-        let paletteCollectionViewController = PaletteCollectionViewController()
+        let paletteCollectionViewController = PalettesViewController()
         let paletteCollectionNavigationController = UINavigationController(rootViewController: paletteCollectionViewController)
         
         paletteCollectionNavigationController.tabBarItem = UITabBarItem(title: "palettes", image: UIImage(systemName: "heart"), tag: 1)

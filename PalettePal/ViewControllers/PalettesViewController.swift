@@ -1,6 +1,6 @@
 import UIKit
 
-class PaletteCollectionViewController: UIViewController {
+class PalettesViewController: UIViewController {
     
     // MARK: - Lifecycle
     
