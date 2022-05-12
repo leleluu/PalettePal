@@ -5,13 +5,6 @@ class PaletteViewController: UIViewController {
     // MARK: - Private Properties
     
     private var palette: [UIColor]
-
-    private var nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     private lazy var swatch: UIView = {
         let view = UIView()
@@ -24,8 +17,8 @@ class PaletteViewController: UIViewController {
     
     init(palette: [UIColor], name: String) {
         self.palette = palette
-        self.nameLabel.text = name
         super.init(nibName: nil, bundle: nil)
+        self.title = name
     }
     
     required init?(coder: NSCoder) {
@@ -45,14 +38,10 @@ class PaletteViewController: UIViewController {
     
     private func setupViews() {
         view.addSubview(swatch)
-        view.addSubview(nameLabel)
         swatch.backgroundColor = palette[0]
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            swatch.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            swatch.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             swatch.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             swatch.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             swatch.heightAnchor.constraint(equalToConstant: 100)
