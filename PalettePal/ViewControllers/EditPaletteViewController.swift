@@ -6,6 +6,17 @@ class EditPaletteViewController: UIViewController {
     
     private var palette: [UIColor]
     
+    private lazy var nameTextField: UITextField = {
+        let textfield = UITextField()
+        textfield.placeholder = "palette name"
+        textfield.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        textfield.keyboardType = .alphabet
+        textfield.returnKeyType = UIReturnKeyType.done
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.delegate = self
+        return textfield
+    }()
+    
     private lazy var swatch: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -32,22 +43,25 @@ class EditPaletteViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSave))
-        
         setupViews()
+        nameTextField.becomeFirstResponder()
     }
     
     // MARK: - Private Methods
     
     private func setupViews() {
         view.addSubview(swatch)
+        view.addSubview(nameTextField)
         swatch.backgroundColor = palette[0]
-
         
         NSLayoutConstraint.activate([
-            swatch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            swatch.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            swatch.heightAnchor.constraint(equalToConstant: 100),
-            swatch.widthAnchor.constraint(equalToConstant: 100)
+            nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            nameTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            nameTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            swatch.topAnchor.constraint(equalTo: nameTextField.bottomAnchor),
+            swatch.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            swatch.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            swatch.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
@@ -62,3 +76,8 @@ class EditPaletteViewController: UIViewController {
     }
 }
 
+// MARK: - UITextFieldDelegate
+
+extension EditPaletteViewController: UITextFieldDelegate {
+    
+}
