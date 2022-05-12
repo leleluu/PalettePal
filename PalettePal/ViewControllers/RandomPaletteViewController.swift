@@ -62,7 +62,6 @@ class RandomPaletteViewController: UIViewController {
             let newColorPalette = palette.result.map { rgb in
                 UIColor(rgb: rgb)
             }
-            
             DispatchQueue.main.async { [self] in
                 self.randomColorPalette = newColorPalette
                 self.collectionView.reloadData()
@@ -76,7 +75,7 @@ class RandomPaletteViewController: UIViewController {
     
     @objc private func didTapSave() {
         print("didtapsave")
-        let editPaletteViewController = EditPaletteViewController()
+        let editPaletteViewController = EditPaletteViewController(palette: self.randomColorPalette)
         let navController = UINavigationController(rootViewController: editPaletteViewController)
         present(navController, animated: true)
     }
