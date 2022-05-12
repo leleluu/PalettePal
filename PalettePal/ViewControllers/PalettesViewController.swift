@@ -25,6 +25,7 @@ class PalettesViewController: UIViewController {
         title = "Palettes"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         setupViews()
     }
     
