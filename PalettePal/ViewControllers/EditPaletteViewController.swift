@@ -5,6 +5,8 @@ class EditPaletteViewController: UIViewController {
     // MARK: - Private Properties
     
     private var palette: [UIColor]
+    private var paletteCard: PaletteCard
+
     
     private lazy var nameTextField: UITextField = {
         let textfield = UITextField()
@@ -17,17 +19,11 @@ class EditPaletteViewController: UIViewController {
         return textfield
     }()
     
-    private lazy var swatch: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        return view
-    }()
-    
     // MARK: - Initialization
     
     init(palette: [UIColor]) {
         self.palette = palette
+        self.paletteCard = PaletteCard(palette: palette)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,18 +46,19 @@ class EditPaletteViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupViews() {
-        view.addSubview(swatch)
+        view.addSubview(paletteCard)
         view.addSubview(nameTextField)
-        swatch.backgroundColor = palette[0]
+        
+        paletteCard.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             nameTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             nameTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            swatch.topAnchor.constraint(equalTo: nameTextField.bottomAnchor),
-            swatch.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            swatch.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            swatch.heightAnchor.constraint(equalToConstant: 100)
+            paletteCard.topAnchor.constraint(equalTo: nameTextField.bottomAnchor),
+            paletteCard.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            paletteCard.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            paletteCard.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
