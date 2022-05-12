@@ -19,6 +19,7 @@
 		388D1B3B282A4D730037CB65 /* EditPaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D1B3A282A4D730037CB65 /* EditPaletteViewController.swift */; };
 		389600EA282D0E5300F3C0F9 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389600E9282D0E5300F3C0F9 /* Palette.swift */; };
 		389600EC282D0E7D00F3C0F9 /* Palettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389600EB282D0E7D00F3C0F9 /* Palettes.swift */; };
+		389600EE282D31EF00F3C0F9 /* PaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		388D1B3A282A4D730037CB65 /* EditPaletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPaletteViewController.swift; sourceTree = "<group>"; };
 		389600E9282D0E5300F3C0F9 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		389600EB282D0E7D00F3C0F9 /* Palettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palettes.swift; sourceTree = "<group>"; };
+		389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				385F2FDF2828FABC00B89E7C /* RandomPaletteViewController.swift */,
 				388D1B3A282A4D730037CB65 /* EditPaletteViewController.swift */,
+				389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */,
 				385F2FEF2829001900B89E7C /* PalettesViewController.swift */,
 			);
 			path = ViewControllers;
@@ -197,6 +200,7 @@
 				388D1B3528297FEE0037CB65 /* APIClient.swift in Sources */,
 				388D1B3B282A4D730037CB65 /* EditPaletteViewController.swift in Sources */,
 				385F2FDE2828FABC00B89E7C /* SceneDelegate.swift in Sources */,
+				389600EE282D31EF00F3C0F9 /* PaletteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

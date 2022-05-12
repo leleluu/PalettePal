@@ -11,6 +11,7 @@ class PalettesViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
         collectionView.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.id)
+        collectionView.delegate = self
         collectionView.dataSource = self
         
         return collectionView
@@ -61,5 +62,15 @@ extension PalettesViewController: UICollectionViewDataSource {
         cell.rgbLabel.text = color.rgbString
         cell.hexLabel.text = color.hexString
         return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension PalettesViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedPalette = Palettes.all[indexPath.row]
+        let paletteViewController = PaletteViewController(palette: selectedPalette.colors, name: selectedPalette.name)
+        navigationController?.pushViewController(paletteViewController, animated: true)
     }
 }
