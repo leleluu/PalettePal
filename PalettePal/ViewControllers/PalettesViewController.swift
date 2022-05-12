@@ -10,7 +10,7 @@ class PalettesViewController: UIViewController {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
-        collectionView.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.id)
+        collectionView.register(PaletteCardCell.self, forCellWithReuseIdentifier: PaletteCardCell.id)
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -59,11 +59,9 @@ extension PalettesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.id, for: indexPath) as! ColorCell
-        let color = Palettes.all[indexPath.row].colors[0]
-        cell.backgroundColor = color
-        cell.rgbLabel.text = color.rgbString
-        cell.hexLabel.text = color.hexString
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PaletteCardCell.id, for: indexPath) as! PaletteCardCell
+        let palette = Palettes.all[indexPath.row]
+        cell.configure(palette: palette.colors, name: palette.name)
         return cell
     }
 }

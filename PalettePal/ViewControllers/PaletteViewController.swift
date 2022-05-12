@@ -14,6 +14,7 @@ class PaletteViewController: UIViewController {
         self.paletteCard = PaletteCard(palette: palette)
         super.init(nibName: nil, bundle: nil)
         self.title = name
+
     }
     
     required init?(coder: NSCoder) {
@@ -26,6 +27,7 @@ class PaletteViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(didTapBack))
+
         setupViews()
     }
     
