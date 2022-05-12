@@ -72,6 +72,7 @@ class EditPaletteViewController: UIViewController {
     @objc private func didTapSave() {
         print("tapped save")
         print(palette)
+        
         dismiss(animated: true)
     }
 }
@@ -79,5 +80,11 @@ class EditPaletteViewController: UIViewController {
 // MARK: - UITextFieldDelegate
 
 extension EditPaletteViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        didTapSave()
+        return true
+    }
     
 }
