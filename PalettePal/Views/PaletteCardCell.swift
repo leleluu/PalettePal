@@ -6,7 +6,13 @@ class PaletteCardCell: UICollectionViewCell {
 
     static let id = "PaletteCardCell"
     private var paletteCard = PaletteCard()
-    private let nameLabel = UILabel()
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 24)
+        label.textColor = .darkGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     // MARK: - Initialization
     
@@ -26,7 +32,6 @@ class PaletteCardCell: UICollectionViewCell {
         addSubview(nameLabel)
         
         paletteCard.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             paletteCard.leadingAnchor.constraint(equalTo: leadingAnchor),

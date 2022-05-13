@@ -8,6 +8,7 @@ class PalettesViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        layout.minimumLineSpacing = 20
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
         collectionView.register(PaletteCardCell.self, forCellWithReuseIdentifier: PaletteCardCell.id)
