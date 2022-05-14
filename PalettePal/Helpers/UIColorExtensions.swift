@@ -18,7 +18,7 @@ extension UIColor {
         let green = Int(self.cgColor.components![1] * 255)
         let blue = Int(self.cgColor.components![2] * 255)
         
-        return("rgb(\(red),\(green),\(blue))")
+        return("R:\(red) G:\(green) B:\(blue)")
     }
     
     
