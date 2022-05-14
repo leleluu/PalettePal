@@ -11,20 +11,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         
+        // Random Palette
+        
         let randomPaletteViewController = RandomPaletteViewController()
         let randomPaletteNavigationController = UINavigationController(rootViewController: randomPaletteViewController)
         
-        randomPaletteNavigationController.tabBarItem = UITabBarItem(title: "explore", image: UIImage(systemName: "lightbulb"), tag: 0)
+        randomPaletteNavigationController.tabBarItem = UITabBarItem(title: "Random", image: UIImage(systemName: "dice"), tag: 0)
         
+        // My Palettes
         
         let paletteCollectionViewController = PalettesViewController()
         let paletteCollectionNavigationController = UINavigationController(rootViewController: paletteCollectionViewController)
         
-        paletteCollectionNavigationController.tabBarItem = UITabBarItem(title: "palettes", image: UIImage(systemName: "heart"), tag: 1)
+        paletteCollectionNavigationController.tabBarItem = UITabBarItem(title: "My Palettes", image: UIImage(systemName: "paintpalette"), tag: 1)
+        
+        let inspirationViewController = InspirationViewController()
+        let inspirationNavigationController = UINavigationController(rootViewController: inspirationViewController)
+        
+        inspirationNavigationController.tabBarItem = UITabBarItem(title: "Inspiration", image: UIImage(systemName: "lightbulb"), tag: 2)
         
         tabBarController.viewControllers = [
             randomPaletteNavigationController,
-            paletteCollectionNavigationController
+            paletteCollectionNavigationController,
+            inspirationNavigationController
         ]
         
         let tabBarAppearance = UITabBarAppearance()

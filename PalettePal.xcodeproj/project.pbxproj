@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3819F0E4282D505F00F30B7B /* PaletteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819F0E3282D505F00F30B7B /* PaletteCard.swift */; };
 		3819F0E6282D581200F30B7B /* PaletteCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819F0E5282D581200F30B7B /* PaletteCardCell.swift */; };
+		3819F0EA282F9E6300F30B7B /* InspirationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819F0E9282F9E6300F30B7B /* InspirationViewController.swift */; };
 		385F2FDC2828FABC00B89E7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385F2FDB2828FABC00B89E7C /* AppDelegate.swift */; };
 		385F2FDE2828FABC00B89E7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385F2FDD2828FABC00B89E7C /* SceneDelegate.swift */; };
 		385F2FE02828FABC00B89E7C /* RandomPaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385F2FDF2828FABC00B89E7C /* RandomPaletteViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		3819F0E3282D505F00F30B7B /* PaletteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCard.swift; sourceTree = "<group>"; };
 		3819F0E5282D581200F30B7B /* PaletteCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCardCell.swift; sourceTree = "<group>"; };
+		3819F0E9282F9E6300F30B7B /* InspirationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspirationViewController.swift; sourceTree = "<group>"; };
 		385F2FD82828FABC00B89E7C /* PalettePal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalettePal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		385F2FDB2828FABC00B89E7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		385F2FDD2828FABC00B89E7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				388D1B3A282A4D730037CB65 /* EditPaletteViewController.swift */,
 				389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */,
 				385F2FEF2829001900B89E7C /* PalettesViewController.swift */,
+				3819F0E9282F9E6300F30B7B /* InspirationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				388D1B3528297FEE0037CB65 /* APIClient.swift in Sources */,
 				388D1B3B282A4D730037CB65 /* EditPaletteViewController.swift in Sources */,
 				385F2FDE2828FABC00B89E7C /* SceneDelegate.swift in Sources */,
+				3819F0EA282F9E6300F30B7B /* InspirationViewController.swift in Sources */,
 				389600EE282D31EF00F3C0F9 /* PaletteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
