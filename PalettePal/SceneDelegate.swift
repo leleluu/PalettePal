@@ -41,6 +41,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.tabBar.standardAppearance = tabBarAppearance
         tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         
+        UINavigationBar.appearance().tintColor = .systemOrange
+        UITabBar.appearance().tintColor = .systemOrange
+            
         window?.rootViewController = tabBarController
         
         window?.makeKeyAndVisible()
