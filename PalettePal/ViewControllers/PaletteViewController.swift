@@ -43,7 +43,6 @@ class PaletteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(didTapBack))
 
         setupViews()
     }
@@ -75,10 +74,6 @@ class PaletteViewController: UIViewController {
             rgbLabel.topAnchor.constraint(equalTo: hexLabel.bottomAnchor, constant: 24),
             
         ])
-    }
-    
-    @objc private func didTapBack() {
-        navigationController?.popViewController(animated: true)
     }
 
 }
