@@ -7,21 +7,26 @@ class RandomPaletteViewController: UIViewController {
     private let apiClient = APIClient()
     private var randomColorPalette: [UIColor] = []
     private var layout = UICollectionViewFlowLayout()
+    static private let cellReuseIdentifier = "ColorCell"
 
     private lazy var generateRandomPaletteButton: UIButton = {
         let button = UIButton()
-        button.setTitle("random color palette button", for: .normal)
-        button.backgroundColor = UIColor.systemYellow
+        button.setTitle("Tap here for random palette", for: .normal)
+        button.backgroundColor = UIColor.white
+        button.setTitleColor(.darkGray, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.lightGray.cgColor
         button.addTarget(self, action: #selector(didTapGenerateRandomPalette), for: .touchUpInside)
         return button
     }()
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        layout.minimumInteritemSpacing = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
-        collectionView.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.id)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: RandomPaletteViewController.cellReuseIdentifier)
         collectionView.dataSource = self
         
         return collectionView
@@ -32,13 +37,18 @@ class RandomPaletteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didTapSave))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(didTapSave))
+        navigationItem.title = "Palette Generator"
         setupViews()
         showRandomPalette()
     }
     
     override func viewDidLayoutSubviews() {
-        layout.itemSize = CGSize(width: collectionView.frame.width, height: 100)
+        let height = collectionView.frame.height
+        let width = collectionView.frame.width
+        layout.itemSize = CGSize(width: width / 5, height: height)
+        //check
+        generateRandomPaletteButton.layer.cornerRadius = generateRandomPaletteButton.frame.height / 2
     }
     
     // MARK: - Private Methods
@@ -49,11 +59,13 @@ class RandomPaletteViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            generateRandomPaletteButton.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
-            generateRandomPaletteButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 50),
-            generateRandomPaletteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            generateRandomPaletteButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 16),
+            generateRandomPaletteButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -16),
+            generateRandomPaletteButton.heightAnchor.constraint(equalToConstant: 64),
+            generateRandomPaletteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32)
         ])
     }
     
@@ -91,11 +103,9 @@ extension RandomPaletteViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.id, for: indexPath) as! ColorCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RandomPaletteViewController.cellReuseIdentifier, for: indexPath)
         let color = randomColorPalette[indexPath.row]
         cell.backgroundColor = color
-        cell.rgbLabel.text = color.rgbString
-        cell.hexLabel.text = color.hexString
         return cell
     }
     

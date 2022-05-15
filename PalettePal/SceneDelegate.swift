@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let randomPaletteViewController = RandomPaletteViewController()
         let randomPaletteNavigationController = UINavigationController(rootViewController: randomPaletteViewController)
         
-        randomPaletteNavigationController.tabBarItem = UITabBarItem(title: "Random", image: UIImage(systemName: "dice"), tag: 0)
+        randomPaletteNavigationController.tabBarItem = UITabBarItem(title: "Generator", image: UIImage(systemName: "dice"), tag: 0)
         
         // My Palettes
         
