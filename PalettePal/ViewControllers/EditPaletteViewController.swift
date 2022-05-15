@@ -10,7 +10,7 @@ class EditPaletteViewController: UIViewController {
     
     private lazy var nameTextField: UITextField = {
         let textfield = UITextField()
-        textfield.placeholder = "palette name"
+        textfield.placeholder = "Palette Name"
         textfield.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         textfield.textColor = .darkGray
         textfield.keyboardType = .alphabet
