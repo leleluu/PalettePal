@@ -6,16 +6,22 @@ class ColorCell: UICollectionViewCell {
 
     static let id = "ColorCell"
     
+    lazy var colorSwatch: UIView = {
+        let swatch = UIView()
+        swatch.translatesAutoresizingMaskIntoConstraints = false
+        return swatch
+    }()
+    
     lazy var rgbLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var hexLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -24,6 +30,7 @@ class ColorCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupSubviews()
     }
     
@@ -34,11 +41,16 @@ class ColorCell: UICollectionViewCell {
     // MARK: - Private Methods
     
     private func setupSubviews() {
+        addSubview(colorSwatch)
         addSubview(rgbLabel)
         addSubview(hexLabel)
         
         NSLayoutConstraint.activate([
-            rgbLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            colorSwatch.topAnchor.constraint(equalTo: topAnchor),
+            colorSwatch.bottomAnchor.constraint(equalTo: bottomAnchor),
+            colorSwatch.leadingAnchor.constraint(equalTo: leadingAnchor),
+            colorSwatch.widthAnchor.constraint(equalToConstant: 100),
+            rgbLabel.leadingAnchor.constraint(equalTo: colorSwatch.trailingAnchor, constant: 16),
             rgbLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             rgbLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             hexLabel.leadingAnchor.constraint(equalTo: rgbLabel.leadingAnchor),

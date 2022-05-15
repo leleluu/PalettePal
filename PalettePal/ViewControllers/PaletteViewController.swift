@@ -6,22 +6,16 @@ class PaletteViewController: UIViewController {
     
     private var palette: [UIColor]
     private var paletteCard: PaletteCard
+    private var layout = UICollectionViewFlowLayout()
     
-    
-    private let hexLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .lightGray
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let rgbLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .lightGray
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.id)
+        collectionView.dataSource = self
+        
+        return collectionView
     }()
     
     // MARK: - Initialization
@@ -31,7 +25,6 @@ class PaletteViewController: UIViewController {
         self.paletteCard = PaletteCard(palette: palette)
         super.init(nibName: nil, bundle: nil)
         self.title = name
-
     }
     
     required init?(coder: NSCoder) {
@@ -47,34 +40,48 @@ class PaletteViewController: UIViewController {
         setupViews()
     }
     
+    override func viewDidLayoutSubviews() {
+        layout.itemSize = CGSize(width: collectionView.frame.width, height: 100)
+    }
+    
     // MARK: - Private Methods
     
     private func setupViews() {
         view.addSubview(paletteCard)
-        view.addSubview(hexLabel)
-        view.addSubview(rgbLabel)
+        view.addSubview(collectionView)
         
         paletteCard.translatesAutoresizingMaskIntoConstraints = false
-        
-        hexLabel.text = "\(palette[0].hexString) \(palette[1].hexString) \(palette[2].hexString) \(palette[3].hexString) \(palette[4].hexString)"
-        
-        rgbLabel.text = "\(palette[0].rgbString) \(palette[1].rgbString) \(palette[2].rgbString) \(palette[3].rgbString) \(palette[4].rgbString)"
-
         
         NSLayoutConstraint.activate([
             paletteCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             paletteCard.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             paletteCard.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            paletteCard.heightAnchor.constraint(equalToConstant: 100),
-            hexLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            hexLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            hexLabel.topAnchor.constraint(equalTo: paletteCard.bottomAnchor, constant: 32),
-            rgbLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            rgbLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            rgbLabel.topAnchor.constraint(equalTo: hexLabel.bottomAnchor, constant: 24),
-            
+            paletteCard.heightAnchor.constraint(equalToConstant: 70),
+            collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: paletteCard.bottomAnchor, constant: 32),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
 }
 
+// MARK: - UICollectionViewDataSource
+
+extension PaletteViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return palette.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.id, for: indexPath) as! ColorCell
+        let color = palette[indexPath.row]
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.colorSwatch.backgroundColor = color
+        cell.layer.borderWidth = 1 / UIScreen.main.scale
+        cell.rgbLabel.text = color.rgbString
+        cell.hexLabel.text = color.hexString
+        return cell
+    }
+}
