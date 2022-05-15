@@ -12,7 +12,7 @@ class RandomPaletteViewController: UIViewController {
     static private let cellReuseIdentifier = "ColorCell"
 
     private lazy var generateRandomPaletteButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Tap here for random palette", for: .normal)
         button.setTitle("", for: .disabled)
 
