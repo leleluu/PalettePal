@@ -11,4 +11,8 @@ struct Palettes {
     static func addPalette(palette: Palette) {
         all.append(palette)
     }
+    
+    static func remove(_ palette: Palette) {
+        all.removeAll(where: {$0 == palette})
+    }
 }

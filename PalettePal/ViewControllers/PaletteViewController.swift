@@ -88,7 +88,22 @@ class PaletteViewController: UIViewController {
             self.presentShareSheet()
         }
         
-        let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash")) { action in
+        let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash")) { [weak self] action in
+            
+            guard let palette = self?.palette else { return }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            let delete = UIAlertAction(title: "Delete", style: .destructive) { [weak self] action in
+                Palettes.remove(palette)
+                self?.navigationController?.popViewController(animated: true)
+            }
+                        
+            let alert = UIAlertController(title: "Delete Palette", message: "Are you sure you want to delete the palette \(palette.name)?", preferredStyle: .alert)
+            
+            alert.addAction(cancel)
+            alert.addAction(delete)
+            
+            self?.present(alert, animated: true, completion: nil)
         }
     
         let menuBarButton = UIBarButtonItem(
