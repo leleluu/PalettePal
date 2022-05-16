@@ -4,7 +4,7 @@ class PaletteViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var palette: [UIColor]
+    private var palette: Palette
     private var paletteCard: PaletteCard
     private var layout = UICollectionViewFlowLayout()
     
@@ -20,11 +20,11 @@ class PaletteViewController: UIViewController {
     
     // MARK: - Initialization
     
-    init(palette: [UIColor], name: String) {
+    init(palette: Palette) {
         self.palette = palette
-        self.paletteCard = PaletteCard(palette: palette)
+        self.paletteCard = PaletteCard(palette: palette.colors)
         super.init(nibName: nil, bundle: nil)
-        self.title = name
+        self.title = palette.name
     }
     
     required init?(coder: NSCoder) {
@@ -66,10 +66,10 @@ class PaletteViewController: UIViewController {
     
     private func presentShareSheet() {
 
-        let rgbValues = palette.map { color in
+        let rgbValues = palette.colors.map { color in
             color.rgbString
         }
-        let hexValues = palette.map { color in
+        let hexValues = palette.colors.map { color in
             color.hexString
         }
         
@@ -111,12 +111,12 @@ class PaletteViewController: UIViewController {
 extension PaletteViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return palette.count
+        return palette.colors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.id, for: indexPath) as! ColorCell
-        let color = palette[indexPath.row]
+        let color = palette.colors[indexPath.row]
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.colorSwatch.backgroundColor = color
         cell.layer.borderWidth = 1 / UIScreen.main.scale
