@@ -15,12 +15,16 @@ class RandomPaletteViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Tap here for random palette", for: .normal)
         button.setTitle("", for: .disabled)
-
         button.backgroundColor = UIColor.white
         button.setTitleColor(.darkGray, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 3.0
+        button.layer.shadowColor = UIColor.gray.cgColor
+        
         button.addTarget(self, action: #selector(didTapGenerateRandomPalette), for: .touchUpInside)
         return button
     }()
