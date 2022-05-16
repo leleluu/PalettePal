@@ -36,7 +36,7 @@ class PaletteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-
+        setupNavBar()
         setupViews()
     }
     
@@ -62,6 +62,29 @@ class PaletteViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: paletteCard.bottomAnchor, constant: 32),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+        
+    private func setupNavBar() {
+        
+        let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { action in
+            self.presentShareSheet()
+        }
+        
+        let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash")) { action in
+        }
+    
+        let menuBarButton = UIBarButtonItem(
+            title: "More",
+            image: UIImage(systemName: "ellipsis.circle"),
+            primaryAction: nil,
+            menu: UIMenu(
+                title: "",
+                children: [shareAction, deleteAction]
+            )
+        )
+    
+        navigationItem.rightBarButtonItem = menuBarButton
     }
 
 }
