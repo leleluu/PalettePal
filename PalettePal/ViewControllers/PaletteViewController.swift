@@ -64,7 +64,24 @@ class PaletteViewController: UIViewController {
         ])
     }
     
+    private func presentShareSheet() {
+
+        let rgbValues = palette.map { color in
+            color.rgbString
+        }
+        let hexValues = palette.map { color in
+            color.hexString
+        }
         
+        let textToShare = "RGB: \(rgbValues), Hex: \(hexValues)"
+        
+        let shareSheetVC = UIActivityViewController(activityItems: [textToShare],
+            applicationActivities: nil
+        )
+        shareSheetVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(shareSheetVC, animated: true)
+    }
+    
     private func setupNavBar() {
         
         let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { action in
