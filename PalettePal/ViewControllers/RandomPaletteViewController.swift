@@ -86,6 +86,8 @@ class RandomPaletteViewController: UIViewController {
 
         spinner.startAnimating()
         generateRandomPaletteButton.isEnabled = false
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        
         apiClient.fetchRandomPalette { palette in
             let newColorPalette = palette.result.map { rgb in
                 UIColor(rgb: rgb)
@@ -95,6 +97,7 @@ class RandomPaletteViewController: UIViewController {
                 self.collectionView.reloadData()
                 spinner.stopAnimating()
                 generateRandomPaletteButton.isEnabled = true
+                navigationItem.rightBarButtonItem?.isEnabled = true
             }
         }
     }
