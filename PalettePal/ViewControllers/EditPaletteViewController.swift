@@ -59,7 +59,7 @@ class EditPaletteViewController: UIViewController {
             paletteCard.topAnchor.constraint(equalTo: nameTextField.bottomAnchor),
             paletteCard.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             paletteCard.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            paletteCard.heightAnchor.constraint(equalToConstant: 100)
+            paletteCard.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     

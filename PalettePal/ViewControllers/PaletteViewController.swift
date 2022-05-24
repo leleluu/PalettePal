@@ -117,7 +117,18 @@ class PaletteViewController: UIViewController {
             )
         )
     
-        navigationItem.rightBarButtonItem = menuBarButton
+        let pencilButton = UIBarButtonItem(image: UIImage(systemName: "pencil.tip.crop.circle"), style: .plain, target: self, action: #selector(didTapPencil)
+        )
+        
+        navigationItem.rightBarButtonItems = [menuBarButton, pencilButton]
+    }
+    
+    @objc func didTapPencil() {
+        let thumbnailSketchViewController = ThumbnailSketchViewController(palette: palette)
+        let navigationController = UINavigationController(rootViewController: thumbnailSketchViewController)
+        navigationController.isModalInPresentation = true
+        present(navigationController, animated: true)
+
     }
 
 }

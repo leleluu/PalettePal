@@ -23,6 +23,7 @@
 		389600EA282D0E5300F3C0F9 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389600E9282D0E5300F3C0F9 /* Palette.swift */; };
 		389600EC282D0E7D00F3C0F9 /* Palettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389600EB282D0E7D00F3C0F9 /* Palettes.swift */; };
 		389600EE282D31EF00F3C0F9 /* PaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */; };
+		38D0309F28397FF3003B90A0 /* ThumbnailSketchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0309E28397FF3003B90A0 /* ThumbnailSketchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		389600E9282D0E5300F3C0F9 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		389600EB282D0E7D00F3C0F9 /* Palettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palettes.swift; sourceTree = "<group>"; };
 		389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteViewController.swift; sourceTree = "<group>"; };
+		38D0309E28397FF3003B90A0 /* ThumbnailSketchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailSketchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */,
 				385F2FEF2829001900B89E7C /* PalettesViewController.swift */,
 				3819F0E9282F9E6300F30B7B /* InspirationViewController.swift */,
+				38D0309E28397FF3003B90A0 /* ThumbnailSketchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				388D1B3B282A4D730037CB65 /* EditPaletteViewController.swift in Sources */,
 				385F2FDE2828FABC00B89E7C /* SceneDelegate.swift in Sources */,
 				3819F0EA282F9E6300F30B7B /* InspirationViewController.swift in Sources */,
+				38D0309F28397FF3003B90A0 /* ThumbnailSketchViewController.swift in Sources */,
 				389600EE282D31EF00F3C0F9 /* PaletteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
