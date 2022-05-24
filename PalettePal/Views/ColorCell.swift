@@ -50,12 +50,12 @@ class ColorCell: UICollectionViewCell {
             colorSwatch.bottomAnchor.constraint(equalTo: bottomAnchor),
             colorSwatch.leadingAnchor.constraint(equalTo: leadingAnchor),
             colorSwatch.widthAnchor.constraint(equalToConstant: 100),
-            rgbLabel.leadingAnchor.constraint(equalTo: colorSwatch.trailingAnchor, constant: 16),
-            rgbLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            rgbLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            hexLabel.leadingAnchor.constraint(equalTo: rgbLabel.leadingAnchor),
+            hexLabel.leadingAnchor.constraint(equalTo: colorSwatch.trailingAnchor, constant: 16),
             hexLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            hexLabel.topAnchor.constraint(equalTo: rgbLabel.bottomAnchor)
+            hexLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -8),
+            rgbLabel.leadingAnchor.constraint(equalTo: hexLabel.leadingAnchor),
+            rgbLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            rgbLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 8)
         ])
     }
 }
