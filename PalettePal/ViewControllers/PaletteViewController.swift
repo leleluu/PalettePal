@@ -12,6 +12,7 @@ class PaletteViewController: UIViewController {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.id)
         collectionView.dataSource = self
         
