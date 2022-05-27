@@ -24,6 +24,7 @@
 		389600EC282D0E7D00F3C0F9 /* Palettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389600EB282D0E7D00F3C0F9 /* Palettes.swift */; };
 		389600EE282D31EF00F3C0F9 /* PaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */; };
 		38D0309F28397FF3003B90A0 /* ThumbnailSketchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0309E28397FF3003B90A0 /* ThumbnailSketchViewController.swift */; };
+		38E052BA28411B9100684F68 /* PaletteColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E052B928411B9100684F68 /* PaletteColorPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		389600EB282D0E7D00F3C0F9 /* Palettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palettes.swift; sourceTree = "<group>"; };
 		389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteViewController.swift; sourceTree = "<group>"; };
 		38D0309E28397FF3003B90A0 /* ThumbnailSketchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailSketchViewController.swift; sourceTree = "<group>"; };
+		38E052B928411B9100684F68 /* PaletteColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteColorPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				385F2FDB2828FABC00B89E7C /* AppDelegate.swift */,
 				385F2FDD2828FABC00B89E7C /* SceneDelegate.swift */,
+				38E052B828411B7E00684F68 /* Controls */,
 				389600E8282D0DA400F3C0F9 /* Models */,
 				388D1B3F282A4E1A0037CB65 /* Views */,
 				388D1B3E282A4E030037CB65 /* ViewControllers */,
@@ -130,6 +133,14 @@
 				389600EB282D0E7D00F3C0F9 /* Palettes.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		38E052B828411B7E00684F68 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				38E052B928411B9100684F68 /* PaletteColorPicker.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +228,7 @@
 				3819F0EA282F9E6300F30B7B /* InspirationViewController.swift in Sources */,
 				38D0309F28397FF3003B90A0 /* ThumbnailSketchViewController.swift in Sources */,
 				389600EE282D31EF00F3C0F9 /* PaletteViewController.swift in Sources */,
+				38E052BA28411B9100684F68 /* PaletteColorPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
