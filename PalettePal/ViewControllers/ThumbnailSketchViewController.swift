@@ -35,7 +35,6 @@ class ThumbnailSketchViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupNavBar()
         setupViews()
-        
     }
     
     // MARK: - Initialization
@@ -59,7 +58,7 @@ class ThumbnailSketchViewController: UIViewController {
         
         let saveButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: #selector(didTapSave))
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didTapCancel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Discard", style: .plain, target: self, action: #selector(didTapCancel))
         
         navigationItem.rightBarButtonItems = [saveButton, undoButton]
     }
@@ -108,8 +107,31 @@ class ThumbnailSketchViewController: UIViewController {
         }
     }
     
-    @objc func didTapSave() {
-        print("did tap save")
+    @objc func didTapSave() {            
+            let drawing = canvasView.drawing
+            let canvasRect = canvasView.bounds
+            let image = drawing.image(from: canvasRect, scale: UIScreen.main.scale)
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        
+        if let error = error {
+            let alert = UIAlertController(title: "Saving Failed", message: "\(error.localizedDescription). Please check in Settings to make sure you have allowed us access to your photo library.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(alert, animated: true)
+            
+            
+        } else {
+            let alert = UIAlertController(title: "Saved", message: "Your sketch has been successfully saved to your photo library.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {  [weak self] action in
+                self?.dismiss(animated: true)
+            }))
+            present(alert, animated: true)
+        }
+        
     }
     
 }
