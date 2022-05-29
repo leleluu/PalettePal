@@ -9,6 +9,7 @@ class InspirationViewController: UIViewController {
         collectionView.register(InspirationalPaletteCardCell.self, forCellWithReuseIdentifier: InspirationalPaletteCardCell.id)
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.id)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -103,5 +104,21 @@ extension InspirationViewController: UICollectionViewDataSource {
             cell.configure(palette: palette.colors, name: palette.name, imageName: palette.imageName)
         }
         return cell
+    }
+}
+
+
+// MARK: -  UICollectionViewDelegate
+
+extension InspirationViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let collection = DummyData.inspirationalPaletteCollections[indexPath.section]
+        
+        let selectedPalette = collection.palettes[indexPath.row]
+        
+        let paletteViewController = PaletteViewController(palette: selectedPalette.palette)
+        navigationController?.pushViewController(paletteViewController, animated: true)
     }
 }
