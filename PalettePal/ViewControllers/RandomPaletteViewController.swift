@@ -107,8 +107,8 @@ class RandomPaletteViewController: UIViewController {
     }
     
     @objc private func didTapSave() {
-        let editPaletteViewController = EditPaletteViewController(palette: self.randomColorPalette)
-        let navController = UINavigationController(rootViewController: editPaletteViewController)
+        let savePaletteViewController = SavePaletteViewController(palette: self.randomColorPalette)
+        let navController = UINavigationController(rootViewController: savePaletteViewController)
         present(navController, animated: true)
     }
 }

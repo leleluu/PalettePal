@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let paletteCollectionViewController = PalettesViewController()
         let paletteCollectionNavigationController = UINavigationController(rootViewController: paletteCollectionViewController)
         
-        paletteCollectionNavigationController.tabBarItem = UITabBarItem(title: "My Palettes", image: UIImage(systemName: "paintpalette"), tag: 1)
+        paletteCollectionNavigationController.tabBarItem = UITabBarItem(title: "My Palettes", image: UIImage(systemName: "bookmark"), tag: 1)
         
         let inspirationViewController = InspirationViewController()
         let inspirationNavigationController = UINavigationController(rootViewController: inspirationViewController)

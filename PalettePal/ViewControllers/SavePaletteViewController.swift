@@ -1,6 +1,6 @@
 import UIKit
 
-class EditPaletteViewController: UIViewController {
+class SavePaletteViewController: UIViewController {
     
     // MARK: - Private Properties
     
@@ -55,7 +55,7 @@ class EditPaletteViewController: UIViewController {
             nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             nameTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             nameTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            paletteCard.topAnchor.constraint(equalTo: nameTextField.bottomAnchor),
+            paletteCard.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 8),
             paletteCard.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             paletteCard.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             paletteCard.heightAnchor.constraint(equalToConstant: 70)
@@ -82,7 +82,7 @@ class EditPaletteViewController: UIViewController {
 
 // MARK: - UITextFieldDelegate
 
-extension EditPaletteViewController: UITextFieldDelegate {
+extension SavePaletteViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()

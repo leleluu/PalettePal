@@ -60,7 +60,7 @@ class PaletteViewController: UIViewController {
             paletteCard.heightAnchor.constraint(equalToConstant: 70),
             collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: paletteCard.bottomAnchor, constant: 32),
+            collectionView.topAnchor.constraint(equalTo: paletteCard.bottomAnchor, constant: 16),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
@@ -124,8 +124,8 @@ class PaletteViewController: UIViewController {
     }
     
     @objc func didTapPencil() {
-        let thumbnailSketchViewController = ThumbnailSketchViewController(palette: palette)
-        let navigationController = UINavigationController(rootViewController: thumbnailSketchViewController)
+        let sketchPadViewController = SketchPadViewController(palette: palette)
+        let navigationController = UINavigationController(rootViewController: sketchPadViewController)
         navigationController.isModalInPresentation = true
         present(navigationController, animated: true)
 

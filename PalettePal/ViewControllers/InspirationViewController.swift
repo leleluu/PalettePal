@@ -48,7 +48,7 @@ class InspirationViewController: UIViewController {
         let inset: CGFloat = 5
         item.contentInsets = NSDirectionalEdgeInsets(
           top: inset,
-          leading: inset,
+          leading: 0,
           bottom: inset,
           trailing: inset
         )
@@ -59,6 +59,13 @@ class InspirationViewController: UIViewController {
 
         // Section
         let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 24,
+            trailing: 0
+        )
+        
         section.orthogonalScrollingBehavior = .groupPaging
         
         
@@ -89,24 +96,14 @@ extension InspirationViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return DummyData.inspirationalPaletteCollections[0].palettes.count
-        } else {
-            return DummyData.inspirationalPaletteCollections[1].palettes.count
-        }
+            return DummyData.inspirationalPaletteCollections[section].palettes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InspirationalPaletteCardCell.id, for: indexPath) as! InspirationalPaletteCardCell
-        if indexPath.section == 0 {
-            let collection = DummyData.inspirationalPaletteCollections[0]
-            let palette = collection.palettes[indexPath.row]
+        let collection = DummyData.inspirationalPaletteCollections[indexPath.section]
+        let palette = collection.palettes[indexPath.row]
             cell.configure(palette: palette.colors, name: palette.name, imageName: palette.imageName)
-        } else {
-            let collection = DummyData.inspirationalPaletteCollections[1]
-            let palette = collection.palettes[indexPath.row]
-            cell.configure(palette: palette.colors, name: palette.name, imageName: palette.imageName)
-        }
         return cell
     }
 }

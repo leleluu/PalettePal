@@ -7,7 +7,13 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
 
     static let id = "InspirationalPaletteCardCell"
     
-    private var paletteCard = PaletteCard()
+    private let containerView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 5
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     private let inspirationalImageView: UIImageView = {
         let imageView = UIImageView()
@@ -17,6 +23,13 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
         return imageView
     }()
 
+    private let paletteCard: PaletteCard = {
+        let paletteCard = PaletteCard()
+        paletteCard.clipsToBounds = true
+        paletteCard.translatesAutoresizingMaskIntoConstraints = false
+        return paletteCard
+    }()
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,23 +50,26 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
     // MARK: - Private Methods
     
     private func setupSubviews() {
-        addSubview(paletteCard)
+        containerView.addSubview(inspirationalImageView)
+        containerView.addSubview(paletteCard)
+        addSubview(containerView)
         addSubview(nameLabel)
-        addSubview(inspirationalImageView)
-        
-        paletteCard.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            inspirationalImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            inspirationalImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            inspirationalImageView.topAnchor.constraint(equalTo: topAnchor),
-            inspirationalImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
-            paletteCard.leadingAnchor.constraint(equalTo: leadingAnchor),
-            paletteCard.trailingAnchor.constraint(equalTo: trailingAnchor),
+            inspirationalImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            inspirationalImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            inspirationalImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            inspirationalImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.9),
+            paletteCard.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            paletteCard.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             paletteCard.topAnchor.constraint(equalTo: inspirationalImageView.bottomAnchor),
+            paletteCard.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.topAnchor.constraint(equalTo: topAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            nameLabel.topAnchor.constraint(equalTo: paletteCard.bottomAnchor),
+            nameLabel.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 4),
             nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }

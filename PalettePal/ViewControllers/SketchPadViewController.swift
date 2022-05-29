@@ -1,7 +1,7 @@
 import UIKit
 import PencilKit
 
-class ThumbnailSketchViewController: UIViewController {
+class SketchPadViewController: UIViewController {
     
     // MARK: - Private Properties
     
