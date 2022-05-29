@@ -11,8 +11,8 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
     
     private let inspirationalImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = UIImage(systemName: "photo.fill")
-        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -65,7 +65,7 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
     func configure(palette: [UIColor], name: String, imageName: String) {
         self.paletteCard.setPalette(palette)
         self.nameLabel.text = name
-        self.inspirationalImageView.image = UIImage(systemName: imageName)
+        self.inspirationalImageView.image = UIImage(named: imageName)
     }
 }
 

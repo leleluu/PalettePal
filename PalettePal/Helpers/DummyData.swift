@@ -21,7 +21,7 @@ private let ramenPalette = InspirationalPalette(
             UIColor.systemPink,
             UIColor.systemOrange,
         ]),
-    imageName: "pencil"
+    imageName: "ramen"
 )
 
 private let greekSaladPalette = InspirationalPalette(
@@ -34,7 +34,7 @@ private let greekSaladPalette = InspirationalPalette(
             UIColor.systemGreen,
             UIColor.systemRed,
         ]),
-    imageName: "pencil"
+    imageName: "ramen"
 )
 
 private let pinaColadaPalette = InspirationalPalette(
@@ -49,7 +49,7 @@ private let pinaColadaPalette = InspirationalPalette(
 
 
         ]),
-    imageName: "pencil"
+    imageName: "ramen"
 )
 
 private let carrotCakePalette = InspirationalPalette(
@@ -62,7 +62,7 @@ private let carrotCakePalette = InspirationalPalette(
             UIColor.systemYellow,
             UIColor.systemBrown,
         ]),
-    imageName: "pencil"
+    imageName: "ramen"
 )
 
 // Individual Nature Color Palettes
@@ -77,7 +77,7 @@ private let waterFallPalette = InspirationalPalette(
             UIColor.systemYellow,
             UIColor.systemBrown,
         ]),
-    imageName: "sun.haze"
+    imageName: "waterfall"
 )
 
 private let tropicalPalette = InspirationalPalette(
@@ -90,7 +90,7 @@ private let tropicalPalette = InspirationalPalette(
             UIColor.systemRed,
             UIColor.systemIndigo,
         ]),
-    imageName: "sun.haze"
+    imageName: "waterfall"
 )
 
 // Inspirational Palette Collection 1
