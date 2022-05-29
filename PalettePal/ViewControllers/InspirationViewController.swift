@@ -8,6 +8,7 @@ class InspirationViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.backgroundColor = .systemYellow
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CellId")
+        collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.id)
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -60,6 +61,10 @@ class InspirationViewController: UIViewController {
         section.orthogonalScrollingBehavior = .groupPaging
         
         
+        // Header
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+        let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        section.boundarySupplementaryItems = [headerItem]
         
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
@@ -74,6 +79,11 @@ extension InspirationViewController: UICollectionViewDataSource {
         return 2
     }
          
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.id, for: indexPath) as! HeaderView
+        header.titleLabel.text = "Section \(indexPath.section)"
+        return header
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 1 {
