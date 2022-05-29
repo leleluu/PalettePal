@@ -19,6 +19,9 @@ class InspirationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        title = "Inspiration"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
         setupViews()
     }
     
@@ -80,7 +83,8 @@ extension InspirationViewController: UICollectionViewDataSource {
          
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.id, for: indexPath) as! HeaderView
-        header.titleLabel.text = "Section \(indexPath.section)"
+        let collection = DummyData.inspirationalPaletteCollections[indexPath.section]
+        header.titleLabel.text = "\(collection.name)"
         return header
     }
 
