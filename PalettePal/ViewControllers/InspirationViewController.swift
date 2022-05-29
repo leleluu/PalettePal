@@ -6,8 +6,7 @@ class InspirationViewController: UIViewController {
         
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        collectionView.backgroundColor = .systemYellow
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CellId")
+        collectionView.register(InspirationalPaletteCardCell.self, forCellWithReuseIdentifier: InspirationalPaletteCardCell.id)
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.id)
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +37,7 @@ class InspirationViewController: UIViewController {
     private func createLayout() -> UICollectionViewCompositionalLayout {
 
         // Item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(2/3), heightDimension: .fractionalHeight(1))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
 
@@ -75,7 +74,7 @@ class InspirationViewController: UIViewController {
 extension InspirationViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return DummyData.inspirationalPaletteCollections.count
     }
          
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -85,19 +84,23 @@ extension InspirationViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 1 {
-            return 5
+        if section == 0 {
+            return DummyData.inspirationalPaletteCollections[0].palettes.count
         } else {
-            return 10
+            return DummyData.inspirationalPaletteCollections[1].palettes.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellId", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InspirationalPaletteCardCell.id, for: indexPath) as! InspirationalPaletteCardCell
         if indexPath.section == 0 {
-            cell.backgroundColor = .systemIndigo
+            let collection = DummyData.inspirationalPaletteCollections[0]
+            let palette = collection.palettes[indexPath.row]
+            cell.configure(palette: palette.colors, name: palette.name, imageName: palette.imageName)
         } else {
-            cell.backgroundColor = .systemMint
+            let collection = DummyData.inspirationalPaletteCollections[1]
+            let palette = collection.palettes[indexPath.row]
+            cell.configure(palette: palette.colors, name: palette.name, imageName: palette.imageName)
         }
         return cell
     }
