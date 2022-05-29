@@ -8,8 +8,8 @@ class HeaderView: UICollectionReusableView {
     
     var titleLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.textColor = .white
-        label.backgroundColor = .systemGray
+        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

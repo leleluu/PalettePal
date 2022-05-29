@@ -12,7 +12,6 @@ class EditPaletteViewController: UIViewController {
         let textfield = UITextField()
         textfield.placeholder = "Palette Name"
         textfield.font = UIFont.systemFont(ofSize: 32, weight: .bold)
-        textfield.textColor = .darkGray
         textfield.keyboardType = .alphabet
         textfield.returnKeyType = UIReturnKeyType.done
         textfield.translatesAutoresizingMaskIntoConstraints = false

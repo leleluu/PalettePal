@@ -47,7 +47,6 @@ class PalettesViewController: UIViewController, UISearchControllerDelegate {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         
         setupViews()
     }

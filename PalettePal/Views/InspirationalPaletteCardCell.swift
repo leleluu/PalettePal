@@ -19,8 +19,6 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24)
-        label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
