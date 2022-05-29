@@ -51,10 +51,8 @@ class InspirationViewController: UIViewController {
         )
         
         // Group
-
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1/3))
-
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(4/5), heightDimension: .fractionalWidth(2/3))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
 
         // Section
         let section = NSCollectionLayoutSection(group: group)
@@ -65,6 +63,7 @@ class InspirationViewController: UIViewController {
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
         let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         section.boundarySupplementaryItems = [headerItem]
+        section.interGroupSpacing = CGFloat(24)
         
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
