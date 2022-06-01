@@ -6,6 +6,8 @@ class PaletteViewController: UIViewController {
     
     private var palette: Palette
     private var paletteCard: PaletteCard
+    private var deletionEnabled: Bool
+    
     private var layout = UICollectionViewFlowLayout()
     
     private lazy var collectionView: UICollectionView = {
@@ -21,8 +23,9 @@ class PaletteViewController: UIViewController {
     
     // MARK: - Initialization
     
-    init(palette: Palette) {
+    init(palette: Palette, deletionEnabled: Bool) {
         self.palette = palette
+        self.deletionEnabled = deletionEnabled
         self.paletteCard = PaletteCard(palette: palette.colors)
         super.init(nibName: nil, bundle: nil)
         self.title = palette.name
@@ -107,13 +110,21 @@ class PaletteViewController: UIViewController {
             self?.present(alert, animated: true, completion: nil)
         }
     
+        let menuChildren: [UIAction]
+        
+        if deletionEnabled {
+            menuChildren = [shareAction, deleteAction]
+        } else {
+            menuChildren = [shareAction]
+        }
+        
         let menuBarButton = UIBarButtonItem(
             title: "More",
             image: UIImage(systemName: "ellipsis.circle"),
             primaryAction: nil,
             menu: UIMenu(
                 title: "",
-                children: [shareAction, deleteAction]
+                children: menuChildren
             )
         )
     

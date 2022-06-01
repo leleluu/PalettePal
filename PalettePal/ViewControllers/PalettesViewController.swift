@@ -124,7 +124,7 @@ extension PalettesViewController: UICollectionViewDelegate {
             selectedPalette = Palettes.all[indexPath.row]
         }
         
-        let paletteViewController = PaletteViewController(palette: selectedPalette)
+        let paletteViewController = PaletteViewController(palette: selectedPalette, deletionEnabled: true)
         navigationController?.pushViewController(paletteViewController, animated: true)
     }
 }

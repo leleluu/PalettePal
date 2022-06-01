@@ -119,7 +119,8 @@ extension InspirationViewController: UICollectionViewDelegate {
         
         let selectedPalette = collection.palettes[indexPath.row]
         
-        let paletteViewController = PaletteViewController(palette: selectedPalette.palette)
+        let paletteViewController = PaletteViewController(palette: selectedPalette.palette, deletionEnabled: false)
+        paletteViewController.navigationItem.rightBarButtonItem?.isEnabled = false
         navigationController?.pushViewController(paletteViewController, animated: true)
     }
 }
