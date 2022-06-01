@@ -8,20 +8,21 @@ class ColorCell: UICollectionViewCell {
     
     lazy var colorSwatch: UIView = {
         let swatch = UIView()
+        swatch.clipsToBounds = true
         swatch.translatesAutoresizingMaskIntoConstraints = false
         return swatch
     }()
     
     lazy var rgbLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .lightGray
+        label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var hexLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .lightGray
+        label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,8 +31,9 @@ class ColorCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupSubviews()
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
     }
     
     required init?(coder: NSCoder) {

@@ -24,7 +24,7 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
     }()
 
     private let paletteCard: PaletteCard = {
-        let paletteCard = PaletteCard()
+        let paletteCard = PaletteCard(style: .squared)
         paletteCard.clipsToBounds = true
         paletteCard.translatesAutoresizingMaskIntoConstraints = false
         return paletteCard

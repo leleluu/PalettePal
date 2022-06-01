@@ -23,7 +23,7 @@ class SavePaletteViewController: UIViewController {
     
     init(palette: [UIColor]) {
         self.palette = palette
-        self.paletteCard = PaletteCard(palette: palette)
+        self.paletteCard = PaletteCard(palette: palette, style: .rounded)
         super.init(nibName: nil, bundle: nil)
     }
     

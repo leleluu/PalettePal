@@ -4,11 +4,17 @@ class PaletteViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var palette: Palette
-    private var paletteCard: PaletteCard
-    private var deletionEnabled: Bool
+    private let palette: Palette
+    private let deletionEnabled: Bool
     
-    private var layout = UICollectionViewFlowLayout()
+    private let layout = UICollectionViewFlowLayout()
+    
+    private lazy var paletteCard: PaletteCard = {
+        let card = PaletteCard(palette: palette.colors, style: .rounded)
+        card.layer.cornerRadius = 5
+        card.layer.masksToBounds = true
+        return card
+    }()
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
@@ -25,8 +31,7 @@ class PaletteViewController: UIViewController {
     
     init(palette: Palette, deletionEnabled: Bool) {
         self.palette = palette
-        self.deletionEnabled = deletionEnabled
-        self.paletteCard = PaletteCard(palette: palette.colors)
+        self.deletionEnabled = deletionEnabled  
         super.init(nibName: nil, bundle: nil)
         self.title = palette.name
     }

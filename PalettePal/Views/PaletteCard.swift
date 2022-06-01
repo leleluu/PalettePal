@@ -2,10 +2,21 @@ import UIKit
 
 class PaletteCard: UIView {
     
-    // MARK: - Properties
+    enum CornerStyle: String {
+        case squared
+        case rounded
+    }
     
-    private let stackView: UIStackView = {
+    // MARK: - Properties
+
+    private var style: CornerStyle
+    
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
+        if style == .rounded {
+            stackView.layer.cornerRadius = 5
+            stackView.layer.masksToBounds = true
+        }
         stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(UIView())
@@ -21,13 +32,16 @@ class PaletteCard: UIView {
 
     // MARK: - Initialization
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(style: CornerStyle) {
+        self.style = style
+        super.init(frame: .zero)
         setupSubviews()
+        
     }
     
-    init(palette: [UIColor]) {
-        self.init()
+    convenience init(palette: [UIColor], style: CornerStyle) {
+        self.init(style: style)
+        self.style = style
         setPalette(palette)
     }
     

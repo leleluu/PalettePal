@@ -5,10 +5,14 @@ class PaletteCardCell: UICollectionViewCell {
     // MARK: - Properties
 
     static let id = "PaletteCardCell"
-    private var paletteCard = PaletteCard()
+    private var paletteCard: PaletteCard = {
+        let card = PaletteCard(style: .rounded)
+        return card
+    }()
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
