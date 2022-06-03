@@ -64,11 +64,14 @@ class PaletteCard: UIView {
     // MARK: - Public Method
     
     func setPalette(_ palette: [UIColor]) {
-        stackView.arrangedSubviews[0].backgroundColor = palette[0]
-        stackView.arrangedSubviews[1].backgroundColor = palette[1]
-        stackView.arrangedSubviews[2].backgroundColor = palette[2]
-        stackView.arrangedSubviews[3].backgroundColor = palette[3]
-        stackView.arrangedSubviews[4].backgroundColor = palette[4]
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.stackView.arrangedSubviews[0].backgroundColor = palette[0]
+            self?.stackView.arrangedSubviews[1].backgroundColor = palette[1]
+            self?.stackView.arrangedSubviews[2].backgroundColor = palette[2]
+            self?.stackView.arrangedSubviews[3].backgroundColor = palette[3]
+            self?.stackView.arrangedSubviews[4].backgroundColor = palette[4]
+        }
+
 
     }
 }
