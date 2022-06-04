@@ -5,7 +5,7 @@ class RandomPaletteViewController: UIViewController {
     // MARK: - Private Properties
     
     private let apiClient = APIClient()
-    private var randomColorPalette: [UIColor] = []
+    private var colors: [UIColor] = []
     private let spinner = UIActivityIndicatorView()
     
     private lazy var paletteCard: PaletteCard = {
@@ -99,13 +99,13 @@ class RandomPaletteViewController: UIViewController {
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         apiClient.fetchRandomPalette { palette in
-            let newColorPalette = palette.result.map { rgb in
+            let newColorSet = palette.result.map { rgb in
                 UIColor(rgb: rgb)
             }
             DispatchQueue.main.async { [self] in
 
-                self.randomColorPalette = newColorPalette
-                self.paletteCard.setPalette(randomColorPalette)
+                self.colors = newColorSet
+                self.paletteCard.setPalette(with: colors, animated: true)
                 spinner.stopAnimating()
                 generateRandomPaletteButton.isEnabled = true
                 navigationItem.rightBarButtonItem?.isEnabled = true
@@ -118,7 +118,7 @@ class RandomPaletteViewController: UIViewController {
     }
     
     @objc private func didTapSave() {
-        let savePaletteViewController = SavePaletteViewController(palette: self.randomColorPalette)
+        let savePaletteViewController = SavePaletteViewController(colors: self.colors)
         let navController = UINavigationController(rootViewController: savePaletteViewController)
         present(navController, animated: true)
     }

@@ -41,7 +41,7 @@ class SketchPadViewController: UIViewController {
     
     init(palette: Palette) {
         self.palette = palette
-        self.paletteCard = PaletteCard(palette: palette.colors, style: .rounded)
+        self.paletteCard = PaletteCard(colors: palette.colors, style: .rounded)
         super.init(nibName: nil, bundle: nil)
     
         self.title = palette.name

@@ -10,7 +10,7 @@ class PaletteViewController: UIViewController {
     private let layout = UICollectionViewFlowLayout()
     
     private lazy var paletteCard: PaletteCard = {
-        let card = PaletteCard(palette: palette.colors, style: .rounded)
+        let card = PaletteCard(colors: palette.colors, style: .rounded)
         card.layer.cornerRadius = 5
         card.layer.masksToBounds = true
         return card

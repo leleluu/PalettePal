@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // My Palettes
         
-        let paletteCollectionViewController = PalettesViewController()
+        let paletteCollectionViewController = PaletteCollectionViewController()
         let paletteCollectionNavigationController = UINavigationController(rootViewController: paletteCollectionViewController)
         
         paletteCollectionNavigationController.tabBarItem = UITabBarItem(title: "My Palettes", image: UIImage(systemName: "bookmark"), tag: 1)

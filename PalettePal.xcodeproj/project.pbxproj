@@ -19,7 +19,7 @@
 		385F2FE02828FABC00B89E7C /* RandomPaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385F2FDF2828FABC00B89E7C /* RandomPaletteViewController.swift */; };
 		385F2FE52828FABE00B89E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 385F2FE42828FABE00B89E7C /* Assets.xcassets */; };
 		385F2FE82828FABE00B89E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385F2FE62828FABE00B89E7C /* LaunchScreen.storyboard */; };
-		385F2FF02829001900B89E7C /* PalettesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385F2FEF2829001900B89E7C /* PalettesViewController.swift */; };
+		385F2FF02829001900B89E7C /* PaletteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385F2FEF2829001900B89E7C /* PaletteCollectionViewController.swift */; };
 		388D1B3528297FEE0037CB65 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D1B3428297FEE0037CB65 /* APIClient.swift */; };
 		388D1B37282980B10037CB65 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D1B36282980B10037CB65 /* UIColorExtensions.swift */; };
 		388D1B39282983A10037CB65 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D1B38282983A10037CB65 /* ColorCell.swift */; };
@@ -47,7 +47,7 @@
 		385F2FE42828FABE00B89E7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		385F2FE72828FABE00B89E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		385F2FE92828FABE00B89E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		385F2FEF2829001900B89E7C /* PalettesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalettesViewController.swift; sourceTree = "<group>"; };
+		385F2FEF2829001900B89E7C /* PaletteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionViewController.swift; sourceTree = "<group>"; };
 		388D1B3428297FEE0037CB65 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		388D1B36282980B10037CB65 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		388D1B38282983A10037CB65 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				385F2FDF2828FABC00B89E7C /* RandomPaletteViewController.swift */,
 				388D1B3A282A4D730037CB65 /* SavePaletteViewController.swift */,
 				389600ED282D31EF00F3C0F9 /* PaletteViewController.swift */,
-				385F2FEF2829001900B89E7C /* PalettesViewController.swift */,
+				385F2FEF2829001900B89E7C /* PaletteCollectionViewController.swift */,
 				3819F0E9282F9E6300F30B7B /* InspirationViewController.swift */,
 				38D0309E28397FF3003B90A0 /* SketchPadViewController.swift */,
 			);
@@ -237,7 +237,7 @@
 				388D1B39282983A10037CB65 /* ColorCell.swift in Sources */,
 				382A6CBD2843C3D000B31843 /* InspirationalPalette.swift in Sources */,
 				389600EA282D0E5300F3C0F9 /* Palette.swift in Sources */,
-				385F2FF02829001900B89E7C /* PalettesViewController.swift in Sources */,
+				385F2FF02829001900B89E7C /* PaletteCollectionViewController.swift in Sources */,
 				388D1B37282980B10037CB65 /* UIColorExtensions.swift in Sources */,
 				382A6CC12843CD9300B31843 /* InspirationalPaletteCardCell.swift in Sources */,
 				38E052BC284274EF00684F68 /* DummyData.swift in Sources */,

@@ -103,7 +103,7 @@ extension InspirationViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InspirationalPaletteCardCell.id, for: indexPath) as! InspirationalPaletteCardCell
         let collection = DummyData.inspirationalPaletteCollections[indexPath.section]
         let palette = collection.palettes[indexPath.row]
-            cell.configure(palette: palette.colors, name: palette.name, imageName: palette.imageName)
+            cell.configure(colors: palette.colors, name: palette.name, imageName: palette.imageName)
         return cell
     }
 }

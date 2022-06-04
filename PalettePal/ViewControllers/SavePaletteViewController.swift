@@ -4,7 +4,7 @@ class SavePaletteViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var palette: [UIColor]
+    private var colors: [UIColor]
     private var paletteCard: PaletteCard
 
     
@@ -21,9 +21,9 @@ class SavePaletteViewController: UIViewController {
     
     // MARK: - Initialization
     
-    init(palette: [UIColor]) {
-        self.palette = palette
-        self.paletteCard = PaletteCard(palette: palette, style: .rounded)
+    init(colors: [UIColor]) {
+        self.colors = colors
+        self.paletteCard = PaletteCard(colors: colors, style: .rounded)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -69,7 +69,7 @@ class SavePaletteViewController: UIViewController {
     @objc private func didTapSave() {
         
         if let name = nameTextField.text, nameTextField.text?.isEmpty == false {
-            let newPalette = Palette(name: name, colors: palette)
+            let newPalette = Palette(name: name, colors: colors)
             Palettes.addPalette(palette: newPalette)
         } else {
         // TODO: Show error when text field is empty and also treat textfield with white space as empty

@@ -49,8 +49,8 @@ class PaletteCardCell: UICollectionViewCell {
     
     // MARK: - Public Methods
     
-    func configure(palette: [UIColor], name: String) {
-        self.paletteCard.setPalette(palette)
+    func configure(colors: [UIColor], name: String) {
+        self.paletteCard.setPalette(with: colors, animated: false)
         self.nameLabel.text = name
     }
 }

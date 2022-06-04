@@ -1,6 +1,6 @@
 import UIKit
 
-class PalettesViewController: UIViewController, UISearchControllerDelegate {
+class PaletteCollectionViewController: UIViewController, UISearchControllerDelegate {
     
     // MARK: - Private Properties
 
@@ -87,7 +87,7 @@ class PalettesViewController: UIViewController, UISearchControllerDelegate {
 
 // MARK: - UICollectionViewDataSource
 
-extension PalettesViewController: UICollectionViewDataSource {
+extension PaletteCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isFiltering {
           return filteredPalettes.count
@@ -106,14 +106,14 @@ extension PalettesViewController: UICollectionViewDataSource {
           palette = Palettes.all[indexPath.row]
         }
         
-        cell.configure(palette: palette.colors, name: palette.name)
+        cell.configure(colors: palette.colors, name: palette.name)
         return cell
     }
 }
 
 // MARK: - UICollectionViewDelegate
 
-extension PalettesViewController: UICollectionViewDelegate {
+extension PaletteCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedPalette: Palette
@@ -131,7 +131,7 @@ extension PalettesViewController: UICollectionViewDelegate {
 
 // MARK: - UISearchResultsUpdating
 
-extension PalettesViewController: UISearchResultsUpdating {
+extension PaletteCollectionViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar

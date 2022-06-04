@@ -76,8 +76,8 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
     
     // MARK: - Public Methods
     
-    func configure(palette: [UIColor], name: String, imageName: String) {
-        self.paletteCard.setPalette(palette)
+    func configure(colors: [UIColor], name: String, imageName: String) {
+        self.paletteCard.setPalette(with: colors, animated: false)
         self.nameLabel.text = name
         self.inspirationalImageView.image = UIImage(named: imageName)
     }

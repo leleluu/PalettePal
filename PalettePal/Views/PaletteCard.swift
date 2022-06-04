@@ -10,7 +10,6 @@ class PaletteCard: UIView {
     // MARK: - Properties
 
     private var style: CornerStyle
-    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         if style == .rounded {
@@ -39,10 +38,9 @@ class PaletteCard: UIView {
         
     }
     
-    convenience init(palette: [UIColor], style: CornerStyle) {
+    convenience init(colors: [UIColor], style: CornerStyle) {
         self.init(style: style)
-        self.style = style
-        setPalette(palette)
+        setPalette(with: colors, animated: true)
     }
     
     required init?(coder: NSCoder) {
@@ -63,16 +61,22 @@ class PaletteCard: UIView {
     
     // MARK: - Public Method
     
-    func setPalette(_ palette: [UIColor]) {
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.stackView.arrangedSubviews[0].backgroundColor = palette[0]
-            self?.stackView.arrangedSubviews[1].backgroundColor = palette[1]
-            self?.stackView.arrangedSubviews[2].backgroundColor = palette[2]
-            self?.stackView.arrangedSubviews[3].backgroundColor = palette[3]
-            self?.stackView.arrangedSubviews[4].backgroundColor = palette[4]
+    func setPalette(with colors: [UIColor], animated: Bool) {
+        if animated {
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                self?.stackView.arrangedSubviews[0].backgroundColor = colors[0]
+                self?.stackView.arrangedSubviews[1].backgroundColor = colors[1]
+                self?.stackView.arrangedSubviews[2].backgroundColor = colors[2]
+                self?.stackView.arrangedSubviews[3].backgroundColor = colors[3]
+                self?.stackView.arrangedSubviews[4].backgroundColor = colors[4]
+            }
+        } else {
+            self.stackView.arrangedSubviews[0].backgroundColor = colors[0]
+            self.stackView.arrangedSubviews[1].backgroundColor = colors[1]
+            self.stackView.arrangedSubviews[2].backgroundColor = colors[2]
+            self.stackView.arrangedSubviews[3].backgroundColor = colors[3]
+            self.stackView.arrangedSubviews[4].backgroundColor = colors[4]
         }
-
-
     }
 }
 
