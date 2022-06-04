@@ -5,14 +5,20 @@ class SketchPadViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var palette: Palette
-    private var paletteCard: PaletteCard
+    private let palette: Palette
+    
+    private lazy var paletteColorPicker: PaletteColorPicker = {
+        let colorPicker = PaletteColorPicker(with: palette)
+        colorPicker.translatesAutoresizingMaskIntoConstraints = false
+        colorPicker.addTarget(self, action: #selector(didChangeColor), for: .valueChanged)
+        return colorPicker
+    }()
     
     private lazy var canvasView: PKCanvasView = {
         let canvasView = PKCanvasView(frame: .zero)
         canvasView.translatesAutoresizingMaskIntoConstraints = false
-        canvasView.layer.borderColor = UIColor.lightGray.cgColor
-        canvasView.layer.borderWidth = 1 / UIScreen.main.scale
+        canvasView.layer.borderColor = UIColor.black.cgColor
+        canvasView.layer.borderWidth = 1.5
         canvasView.tool = PKInkingTool(.pen, color: palette.colors[0], width: 30)
         canvasView.drawingPolicy = .anyInput
         
@@ -21,11 +27,14 @@ class SketchPadViewController: UIViewController {
         return canvasView
     }()
     
-    private lazy var paletteColorPicker: PaletteColorPicker = {
-        let colorPicker = PaletteColorPicker(with: palette)
-        colorPicker.translatesAutoresizingMaskIntoConstraints = false
-        colorPicker.addTarget(self, action: #selector(didChangeColor), for: .valueChanged)
-        return colorPicker
+    private let toolTipLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Play around with the colors from this palette and save the doodle to your photo library!"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .darkGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     // MARK: - Lifecycle
@@ -41,9 +50,7 @@ class SketchPadViewController: UIViewController {
     
     init(palette: Palette) {
         self.palette = palette
-        self.paletteCard = PaletteCard(colors: palette.colors, style: .rounded)
         super.init(nibName: nil, bundle: nil)
-    
         self.title = palette.name
     }
     
@@ -67,22 +74,22 @@ class SketchPadViewController: UIViewController {
 
         view.addSubview(canvasView)
         view.addSubview(paletteColorPicker)
-        view.addSubview(paletteCard)
-        paletteCard.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(toolTipLabel)
+        toolTipLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             paletteColorPicker.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             paletteColorPicker.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             paletteColorPicker.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             paletteColorPicker.bottomAnchor.constraint(equalTo: canvasView.topAnchor, constant: -64),
-            paletteColorPicker.heightAnchor.constraint(equalToConstant: 70),
+            paletteColorPicker.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
             canvasView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             canvasView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             canvasView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            paletteCard.leadingAnchor.constraint(equalTo: canvasView.leadingAnchor),
-            paletteCard.trailingAnchor.constraint(equalTo: canvasView.trailingAnchor),
-            paletteCard.topAnchor.constraint(equalTo: canvasView.bottomAnchor, constant: 10),
-            paletteCard.heightAnchor.constraint(equalToConstant: 20)
+            toolTipLabel.leadingAnchor.constraint(equalTo: canvasView.leadingAnchor),
+            toolTipLabel.trailingAnchor.constraint(equalTo: canvasView.trailingAnchor),
+            toolTipLabel.topAnchor.constraint(equalTo: canvasView.bottomAnchor, constant: 8),
+            toolTipLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 8)
         ])
     }
         
