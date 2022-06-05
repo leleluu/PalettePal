@@ -92,48 +92,50 @@ class RandomPaletteViewController: UIViewController {
         ])
     }
     
+    private func handleSuccess(_ colors: [UIColor]) {
+        self.colors = colors
+        self.paletteCard.setPalette(with: colors, animated: true)
+        self.spinner.stopAnimating()
+        self.generateRandomPaletteButton.isEnabled = true
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    
+    private func handleFailure(_ error: APIClient.NetworkError) {
+        let alert = UIAlertController(title: "Oops an error occurred", message: "\(error.localizedDescription). Please make sure you are connected to the internet.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {  action in
+            self.dismiss(animated: true)
+        }))
+        self.present(alert, animated: true)
+        
+        // Show a gray palette to indicate error
+        self.paletteCard.setPalette(
+            with: [
+                UIColor.black.withAlphaComponent(0.2),
+                UIColor.black.withAlphaComponent(0.4),
+                UIColor.black.withAlphaComponent(0.6),
+                UIColor.black.withAlphaComponent(0.8),
+                UIColor.black.withAlphaComponent(1)
+            ],
+            animated: true
+        )
+        self.spinner.stopAnimating()
+        self.generateRandomPaletteButton.isEnabled = true
+    }
+    
     private func showRandomPalette() {
-
         spinner.startAnimating()
         generateRandomPaletteButton.isEnabled = false
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         apiClient.fetchRandomPalette { [weak self] result in
-            switch result {
-            case .success(let palette):
-                let newColorSet = palette.result.map { rgb in
-                    UIColor(rgb: rgb)
-                }
-                DispatchQueue.main.async {
-                    self?.colors = newColorSet
-                    self?.paletteCard.setPalette(with: newColorSet, animated: true)
-                    self?.spinner.stopAnimating()
-                    self?.generateRandomPaletteButton.isEnabled = true
-                    self?.navigationItem.rightBarButtonItem?.isEnabled = true
-                }
-                
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Oops an error occurred", message: "\(error.localizedDescription). Please make sure you are connected to the internet.", preferredStyle: .alert)
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let palette):
+                    self?.handleSuccess(palette)
                     
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {  action in
-                        self?.dismiss(animated: true)
-                    }))
-                    self?.present(alert, animated: true)
-                    
-                    // Show a gray palette to indicate error
-                    self?.paletteCard.setPalette(
-                        with: [
-                            UIColor.black.withAlphaComponent(0.2),
-                            UIColor.black.withAlphaComponent(0.4),
-                            UIColor.black.withAlphaComponent(0.6),
-                            UIColor.black.withAlphaComponent(0.8),
-                            UIColor.black.withAlphaComponent(1)
-                        ],
-                        animated: true
-                    )
-                    self?.spinner.stopAnimating()
-                    self?.generateRandomPaletteButton.isEnabled = true
+                case .failure(let error):
+                    self?.handleFailure(error)
                 }
             }
         }

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 class APIClient {
     
@@ -6,7 +7,7 @@ class APIClient {
         case generic
     }
     
-    func fetchRandomPalette(completion: @escaping ((Result<ColorMindPalette, NetworkError>) -> Void)) {
+    func fetchRandomPalette(completion: @escaping ((Result<[UIColor], NetworkError>) -> Void)) {
         
         let url = URL(string: "http://colormind.io/api/")
         var request = URLRequest(url: url!)
@@ -24,7 +25,10 @@ class APIClient {
             do {
                 let decoder = JSONDecoder()
                 let result = try decoder.decode(ColorMindPalette.self, from: data)
-                completion(.success(result))
+                let newColorSet = result.result.map { rgb in
+                    UIColor(rgb: rgb)
+                }
+                completion(.success(newColorSet))
             } catch {
                 print(error.localizedDescription)
             }
