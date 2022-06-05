@@ -2,7 +2,11 @@ import Foundation
 
 class APIClient {
     
-    func fetchRandomPalette(completion: @escaping ((ColorMindPalette) -> Void)) {
+    enum NetworkError: Error, LocalizedError {
+        case generic
+    }
+    
+    func fetchRandomPalette(completion: @escaping ((Result<ColorMindPalette, NetworkError>) -> Void)) {
         
         let url = URL(string: "http://colormind.io/api/")
         var request = URLRequest(url: url!)
@@ -11,10 +15,19 @@ class APIClient {
         let session = URLSession.shared
         let task = session.dataTask(with: request) {
             data, response, error in
+
+            guard let data = data else {
+                completion(.failure(NetworkError.generic))
+                return
+            }
             
-            let decoder = JSONDecoder()
-            let result = try! decoder.decode(ColorMindPalette.self, from: data!)
-            completion(result)
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(ColorMindPalette.self, from: data)
+                completion(.success(result))
+            } catch {
+                print(error.localizedDescription)
+            }
         }
         task.resume()
     }

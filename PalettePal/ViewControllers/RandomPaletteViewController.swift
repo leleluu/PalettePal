@@ -98,17 +98,43 @@ class RandomPaletteViewController: UIViewController {
         generateRandomPaletteButton.isEnabled = false
         navigationItem.rightBarButtonItem?.isEnabled = false
         
-        apiClient.fetchRandomPalette { palette in
-            let newColorSet = palette.result.map { rgb in
-                UIColor(rgb: rgb)
-            }
-            DispatchQueue.main.async { [self] in
-
-                self.colors = newColorSet
-                self.paletteCard.setPalette(with: colors, animated: true)
-                spinner.stopAnimating()
-                generateRandomPaletteButton.isEnabled = true
-                navigationItem.rightBarButtonItem?.isEnabled = true
+        apiClient.fetchRandomPalette { [weak self] result in
+            switch result {
+            case .success(let palette):
+                let newColorSet = palette.result.map { rgb in
+                    UIColor(rgb: rgb)
+                }
+                DispatchQueue.main.async {
+                    self?.colors = newColorSet
+                    self?.paletteCard.setPalette(with: newColorSet, animated: true)
+                    self?.spinner.stopAnimating()
+                    self?.generateRandomPaletteButton.isEnabled = true
+                    self?.navigationItem.rightBarButtonItem?.isEnabled = true
+                }
+                
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Oops an error occurred", message: "\(error.localizedDescription). Please make sure you are connected to the internet.", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {  action in
+                        self?.dismiss(animated: true)
+                    }))
+                    self?.present(alert, animated: true)
+                    
+                    // Show a gray palette to indicate error
+                    self?.paletteCard.setPalette(
+                        with: [
+                            UIColor.black.withAlphaComponent(0.2),
+                            UIColor.black.withAlphaComponent(0.4),
+                            UIColor.black.withAlphaComponent(0.6),
+                            UIColor.black.withAlphaComponent(0.8),
+                            UIColor.black.withAlphaComponent(1)
+                        ],
+                        animated: true
+                    )
+                    self?.spinner.stopAnimating()
+                    self?.generateRandomPaletteButton.isEnabled = true
+                }
             }
         }
     }
