@@ -93,7 +93,7 @@ class PaletteViewController: UIViewController {
     
     private func setupNavBar() {
         
-        let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { action in
+        let shareAction = UIAction(title: "Share color values", image: UIImage(systemName: "square.and.arrow.up")) { action in
             self.presentShareSheet()
         }
         
@@ -163,6 +163,7 @@ extension PaletteViewController: UICollectionViewDataSource {
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.colorSwatch.backgroundColor = color
         cell.layer.borderWidth = 1 / UIScreen.main.scale
+        
         cell.rgbLabel.text = color.rgbString
         cell.hexLabel.text = color.hexString
         return cell
