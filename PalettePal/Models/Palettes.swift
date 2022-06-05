@@ -33,7 +33,7 @@ struct Palettes: Codable {
     // MARK: - Public Methods
     
     static func addPalette(palette: Palette) {
-        all.append(palette)
+        all.insert(palette, at: 0)
     }
     
     static func remove(_ palette: Palette) {
