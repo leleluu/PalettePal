@@ -164,8 +164,18 @@ extension PaletteViewController: UICollectionViewDataSource {
         cell.colorSwatch.backgroundColor = color
         cell.layer.borderWidth = 1 / UIScreen.main.scale
         
-        cell.rgbLabel.text = color.rgbString
-        cell.hexLabel.text = color.hexString
+        // RGB label
+        let attributedRGB = NSMutableAttributedString(string: "RGB: ", attributes: [.font: UIFont.boldSystemFont(ofSize: 17)])
+        let rgbString = NSAttributedString(string: color.rgbString)
+        attributedRGB.append(rgbString)
+        cell.rgbLabel.attributedText = attributedRGB
+
+        // HEX label
+        let attributedHex = NSMutableAttributedString(string: "HEX: ", attributes: [.font: UIFont.boldSystemFont(ofSize: 17)])
+        let hexString = NSAttributedString(string: color.hexString)
+        attributedHex.append(hexString)
+        cell.hexLabel.attributedText = attributedHex
+        
         return cell
     }
 }
