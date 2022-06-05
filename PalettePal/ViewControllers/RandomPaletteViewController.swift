@@ -62,6 +62,10 @@ class RandomPaletteViewController: UIViewController {
         generateRandomPaletteButton.layer.cornerRadius = generateRandomPaletteButton.frame.height / 2
 
     }
+
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        showRandomPalette()
+    }
     
     // MARK: - Private Methods
     
