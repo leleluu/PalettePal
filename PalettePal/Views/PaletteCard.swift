@@ -13,7 +13,7 @@ class PaletteCard: UIView {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         if style == .rounded {
-            stackView.layer.cornerRadius = 5
+            stackView.layer.cornerRadius = DesignConstants.defaultCornerRadius
             stackView.layer.masksToBounds = true
         }
         stackView.addArrangedSubview(UIView())
@@ -52,10 +52,10 @@ class PaletteCard: UIView {
     private func setupSubviews() {
         addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     

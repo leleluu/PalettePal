@@ -32,7 +32,7 @@ class ColorCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = DesignConstants.defaultCornerRadius
         self.layer.masksToBounds = true
     }
     

@@ -11,7 +11,7 @@ class PaletteViewController: UIViewController {
     
     private lazy var paletteCard: PaletteCard = {
         let card = PaletteCard(colors: palette.colors, style: .rounded)
-        card.layer.cornerRadius = 5
+        card.layer.cornerRadius = DesignConstants.defaultCornerRadius
         card.layer.masksToBounds = true
         return card
     }()
@@ -65,7 +65,7 @@ class PaletteViewController: UIViewController {
             paletteCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             paletteCard.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             paletteCard.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            paletteCard.heightAnchor.constraint(equalToConstant: 70),
+            paletteCard.heightAnchor.constraint(equalToConstant: DesignConstants.defaultPaletteCardHeight),
             collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: paletteCard.bottomAnchor, constant: 16),

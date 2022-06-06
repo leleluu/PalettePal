@@ -1,5 +1,6 @@
 import UIKit
 
+
 class SavePaletteViewController: UIViewController {
     
     // MARK: - Private Properties
@@ -58,7 +59,7 @@ class SavePaletteViewController: UIViewController {
             paletteCard.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 8),
             paletteCard.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             paletteCard.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            paletteCard.heightAnchor.constraint(equalToConstant: 70)
+            paletteCard.heightAnchor.constraint(equalToConstant: DesignConstants.defaultPaletteCardHeight)
         ])
     }
     

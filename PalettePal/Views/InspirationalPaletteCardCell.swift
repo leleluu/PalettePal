@@ -9,7 +9,7 @@ class InspirationalPaletteCardCell: UICollectionViewCell {
     
     private let containerView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 5
+        view.layer.cornerRadius = DesignConstants.defaultCornerRadius
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

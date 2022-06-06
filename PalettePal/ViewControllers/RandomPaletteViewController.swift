@@ -6,10 +6,14 @@ class RandomPaletteViewController: UIViewController {
     
     private let apiClient = APIClient()
     private var colors: [UIColor] = []
-    private let spinner = UIActivityIndicatorView()
+    
+    private lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView()
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
     
     private lazy var paletteCard: PaletteCard = {
-
         let card = PaletteCard(style: .rounded)
         card.translatesAutoresizingMaskIntoConstraints = false
         return card
@@ -18,7 +22,7 @@ class RandomPaletteViewController: UIViewController {
     private let toolTipLabel: UILabel = {
         let label = UILabel()
         label.text = "Tap the button below or shake your device to generate a random color palette!"
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -75,22 +79,21 @@ class RandomPaletteViewController: UIViewController {
         view.addSubview(generateRandomPaletteButton)
         generateRandomPaletteButton.addSubview(spinner)
         
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-
+        let verticalSpacing: CGFloat = 32
         
         NSLayoutConstraint.activate([
-            paletteCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            paletteCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            paletteCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            paletteCard.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            paletteCard.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            paletteCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalSpacing),
             paletteCard.heightAnchor.constraint(equalToConstant: 300),
-            toolTipLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 8),
-            toolTipLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -8),
-            toolTipLabel.bottomAnchor.constraint(equalTo: generateRandomPaletteButton.topAnchor, constant: -32),
-            generateRandomPaletteButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 16),
-            generateRandomPaletteButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -16),
+            toolTipLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            toolTipLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            toolTipLabel.bottomAnchor.constraint(equalTo: generateRandomPaletteButton.topAnchor, constant: -verticalSpacing),
+            generateRandomPaletteButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            generateRandomPaletteButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             generateRandomPaletteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             generateRandomPaletteButton.heightAnchor.constraint(equalToConstant: 56),
-            generateRandomPaletteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
+            generateRandomPaletteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalSpacing),
             spinner.centerXAnchor.constraint(equalTo: generateRandomPaletteButton.centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: generateRandomPaletteButton.centerYAnchor)
         ])
