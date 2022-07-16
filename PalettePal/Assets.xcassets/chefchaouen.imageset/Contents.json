@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "heidi-kaden-NncAbldgViA-unsplash.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "heidi-kaden-NncAbldgViA-unsplash-1.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "heidi-kaden-NncAbldgViA-unsplash-2.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
