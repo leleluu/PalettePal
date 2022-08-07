@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "vincent-van-zalinge-vUNQaTtZeOo-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "vincent-van-zalinge-vUNQaTtZeOo-unsplash-1.jpg",
+      "filename" : "vincent-van-zalinge-vUNQaTtZeOo-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "vincent-van-zalinge-vUNQaTtZeOo-unsplash-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

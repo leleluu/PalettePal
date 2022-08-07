@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "clifford-5ZB0w0vSgPk-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "clifford-5ZB0w0vSgPk-unsplash-1.jpg",
+      "filename" : "clifford-5ZB0w0vSgPk-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "clifford-5ZB0w0vSgPk-unsplash-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

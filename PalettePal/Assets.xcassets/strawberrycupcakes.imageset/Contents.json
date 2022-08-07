@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "deva-williamson-9zr3elT4MHM-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "deva-williamson-9zr3elT4MHM-unsplash-1.jpg",
+      "filename" : "deva-williamson-9zr3elT4MHM-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "deva-williamson-9zr3elT4MHM-unsplash-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

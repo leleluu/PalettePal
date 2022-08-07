@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "paul-carroll-ErXur1fAhC4-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "paul-carroll-ErXur1fAhC4-unsplash-1.jpg",
+      "filename" : "paul-carroll-ErXur1fAhC4-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "paul-carroll-ErXur1fAhC4-unsplash-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

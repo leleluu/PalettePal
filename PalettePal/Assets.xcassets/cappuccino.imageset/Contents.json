@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "nathan-dumlao-zUNs99PGDg0-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "nathan-dumlao-zUNs99PGDg0-unsplash-1.jpg",
+      "filename" : "nathan-dumlao-zUNs99PGDg0-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "nathan-dumlao-zUNs99PGDg0-unsplash-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

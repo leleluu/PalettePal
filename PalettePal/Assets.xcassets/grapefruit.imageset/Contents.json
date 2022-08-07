@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "rayia-soderberg-ezSFnAFi9hY-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "rayia-soderberg-ezSFnAFi9hY-unsplash-1.jpg",
+      "filename" : "rayia-soderberg-ezSFnAFi9hY-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "rayia-soderberg-ezSFnAFi9hY-unsplash-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }
