@@ -4,26 +4,52 @@ import UIKit
 struct DummyData {
     
     static let inspirationalPaletteCollections: [InspirationalPaletteCollection] = [
-        cityPalettes,
+        placesPalettes,
         foodPalettes,
         animalPalettes
     ]
     
 }
 
-// Individual City Color Palettes
+// Place Color Palettes
 
-private let lisbonPalette = InspirationalPalette(
+private let buranoPalette = InspirationalPalette(
     palette: Palette(
-        name: "Lisbon",
+        name: "Burano",
         colors: [
-            UIColor.init(rgb: [214, 184, 117]),
-            UIColor.init(rgb: [192, 120, 79]),
-            UIColor.init(rgb: [236, 192, 167]),
-            UIColor.init(rgb: [2, 89, 130]),
-            UIColor.init(rgb: [8, 48, 48]),
+            UIColor.init(rgb: [248, 175, 183]),
+            UIColor.init(rgb: [245, 114, 129]),
+            UIColor.init(rgb: [247, 186, 6]),
+            UIColor.init(rgb: [207, 82, 16]),
+            UIColor.init(rgb: [29, 80, 197]),
         ]),
-    imageName: "lisbon"
+    imageName: "burano"
+)
+
+private let provencePalette = InspirationalPalette(
+    palette: Palette(
+        name: "Provence",
+        colors: [
+            UIColor.init(rgb: [247, 209, 222]),
+            UIColor.init(rgb: [198, 164, 201]),
+            UIColor.init(rgb: [117, 72, 175]),
+            UIColor.init(rgb: [141, 92, 173]),
+            UIColor.init(rgb: [126, 139, 127]),
+        ]),
+    imageName: "provence"
+)
+
+private let banffPalette = InspirationalPalette(
+    palette: Palette(
+        name: "Banff",
+        colors: [
+            UIColor.init(rgb: [68, 145, 183]),
+            UIColor.init(rgb: [214, 238, 251]),
+            UIColor.init(rgb: [196, 165, 88]),
+            UIColor.init(rgb: [52, 85, 50]),
+            UIColor.init(rgb: [25, 58, 28]),
+        ]),
+    imageName: "banff"
 )
 
 private let chefchaouenPalette = InspirationalPalette(
@@ -52,7 +78,8 @@ private let copenhagenPalette = InspirationalPalette(
     imageName: "copenhagen"
 )
 
-// Individual Food Color Palettes
+// Food Color Palettes
+
 private let avocadoToastPalette = InspirationalPalette(
     palette: Palette(
         name: "Avocado Toast",
@@ -94,7 +121,7 @@ private let strawberriesAndCreamPalette = InspirationalPalette(
 
 private let cappuccinoPalette = InspirationalPalette(
     palette: Palette(
-        name: "Cappuccino Delight",
+        name: "Capuccino",
         colors: [
             UIColor.init(rgb: [220, 221, 223]),
             UIColor.init(rgb: [221, 195, 174]),
@@ -105,7 +132,33 @@ private let cappuccinoPalette = InspirationalPalette(
     imageName: "cappuccino"
 )
 
-// Individual Nature Color Palettes
+private let sushiPalette = InspirationalPalette(
+    palette: Palette(
+        name: "Sushi",
+        colors: [
+            UIColor.init(rgb: [248, 239, 222]),
+            UIColor.init(rgb: [254, 155, 27]),
+            UIColor.init(rgb: [255, 206, 151]),
+            UIColor.init(rgb: [180, 177, 44]),
+            UIColor.init(rgb: [52, 35, 22]),
+        ]),
+    imageName: "sushi"
+)
+
+// Animal Color Palettes
+
+private let toucanPalette = InspirationalPalette(
+    palette: Palette(
+        name: "Toucan",
+        colors: [
+            UIColor.init(rgb: [239, 208, 7]),
+            UIColor.init(rgb: [60, 84, 11]),
+            UIColor.init(rgb: [226, 135, 137]),
+            UIColor.init(rgb: [190, 212, 28]),
+            UIColor.init(rgb: [226, 108, 7]),
+        ]),
+    imageName: "toucan"
+)
 
 private let kingfisherPalette = InspirationalPalette(
     palette: Palette(
@@ -118,6 +171,19 @@ private let kingfisherPalette = InspirationalPalette(
             UIColor.init(rgb: [80, 179, 195]),
         ]),
     imageName: "kingfisher"
+)
+
+private let clownfishPalette = InspirationalPalette(
+    palette: Palette(
+        name: "Clownfish",
+        colors: [
+            UIColor.init(rgb: [209, 86, 7]),
+            UIColor.init(rgb: [235, 144, 11]),
+            UIColor.init(rgb: [254, 252, 254]),
+            UIColor.init(rgb: [113, 34, 131]),
+            UIColor.init(rgb: [173, 88, 160]),
+        ]),
+    imageName: "clownfish"
 )
 
 private let penguinPalette = InspirationalPalette(
@@ -133,6 +199,7 @@ private let penguinPalette = InspirationalPalette(
     imageName: "penguin"
 )
 
+
 private let giraffePalette = InspirationalPalette(
     palette: Palette(
         name: "Giraffe",
@@ -145,12 +212,15 @@ private let giraffePalette = InspirationalPalette(
         ]),
     imageName: "giraffe"
 )
-// Cities Palette Collection 1
 
-private let cityPalettes = InspirationalPaletteCollection(
-    name: "Colorful cities",
+// Places Palette Collection
+
+private let placesPalettes = InspirationalPaletteCollection(
+    name: "Places",
     palettes: [
-        lisbonPalette,
+        buranoPalette,
+        banffPalette,
+        provencePalette,
         chefchaouenPalette,
         copenhagenPalette,
     ]
@@ -158,22 +228,25 @@ private let cityPalettes = InspirationalPaletteCollection(
 
 // Food Palette Collection
 private let foodPalettes = InspirationalPaletteCollection(
-    name: "Food-inspired palettes",
+    name: "Food",
     palettes: [
         grapefruitPalette,
         avocadoToastPalette,
         strawberriesAndCreamPalette,
-        cappuccinoPalette
+        cappuccinoPalette,
+        sushiPalette
     ]
 )
 
 // Animal Palette Collection
 private let animalPalettes = InspirationalPaletteCollection(
-    name: "Animal patterns",
+    name: "Animals",
     palettes: [
+        toucanPalette,
         kingfisherPalette,
+        clownfishPalette,
         penguinPalette,
-        giraffePalette
+        giraffePalette,
     ]
 )
 
