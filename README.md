@@ -8,9 +8,9 @@ Palette Pal is a colour palette app I designed and created from scratch that hel
 
 **Highlights ⭐️**
 
-- UI built programmatically using UIKit
+- UI built programmatically using `UIKit`
 - MVC architecture
-- Networking with URLSession
-- Data persistence using UserDefaults
-- Sketchpad screen using PencilKit
-- Inspirational screen using a collection view with compositional layout
+- Networking with `URLSession`
+- Data persistence using `UserDefaults`
+- Sketchpad screen using `PencilKit`
+- Inspirational screen using `UICollectionViewCompositionalLayout`
