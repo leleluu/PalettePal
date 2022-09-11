@@ -5,8 +5,7 @@ Palette Pal is a colour palette app I designed and created from scratch that hel
 
 ![PalettePalScreenshots](https://user-images.githubusercontent.com/17449593/185659823-31bacfea-a0a8-415a-8818-2a8ddb9b8aa3.jpg)
 
-
-**Highlights ⭐️**
+**Highlights** ⭐️
 
 - UI built programmatically using `UIKit`
 - MVC architecture
@@ -14,3 +13,7 @@ Palette Pal is a colour palette app I designed and created from scratch that hel
 - Data persistence using `UserDefaults`
 - Sketchpad screen using `PencilKit`
 - Inspirational screen using `UICollectionViewCompositionalLayout`
+
+**See it in action** 🎬
+
+https://user-images.githubusercontent.com/17449593/189546739-684c33ef-e60c-41fe-898b-62ba757bb076.mov
