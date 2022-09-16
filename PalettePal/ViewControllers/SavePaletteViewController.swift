@@ -17,6 +17,7 @@ class SavePaletteViewController: UIViewController {
         textfield.returnKeyType = UIReturnKeyType.done
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.delegate = self
+        textfield.accessibilityIdentifier = "palette name textfield"
         return textfield
     }()
     

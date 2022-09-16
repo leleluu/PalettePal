@@ -3,33 +3,35 @@ import XCTest
 class PalettePalUITests: XCTestCase {
     
     var app: XCUIApplication!
+    var randomPaletteScreen: RandomPaletteScreen!
+    var savePaletteScreen: SavePaletteScreen!
+    var paletteCollection: PaletteCollectionScreen!
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-        
         app = XCUIApplication()
         app.launchArguments.append("UI-Testing")
         app.launch()
+        
+        randomPaletteScreen = RandomPaletteScreen(app: app)
+        savePaletteScreen = SavePaletteScreen(app: app)
+        paletteCollection = PaletteCollectionScreen(app: app)
     }
 
     func testAddingNewPalette() throws {
         
         // Given
-        let bookmarkButton = app.navigationBars["Palette Generator"].buttons["bookmark"]
-        let saveButton =  app.navigationBars["PalettePal.SavePaletteView"].buttons["Save"]
-        let paletteNameTextField = app.textFields.element
-        let myPalettesTab = app.tabBars["Tab Bar"].buttons["My Palettes"]
         let dummyPaletteName = "dummy palette name"
         
         // When
-        bookmarkButton.tap()
-        paletteNameTextField.typeText(dummyPaletteName)
-        saveButton.tap()
-        myPalettesTab.tap()
+        randomPaletteScreen.bookmarkButton.tap()
+        savePaletteScreen.paletteNameTextField.typeText(dummyPaletteName)
+        savePaletteScreen.saveButton.tap()
+        savePaletteScreen.switchTab(to: .myPalettes)
         
         // Then
-        XCTAssertEqual(app.collectionViews.cells.count, 1)
-        XCTAssertEqual(app.collectionViews.cells.staticTexts.firstMatch.label, dummyPaletteName)
+        XCTAssertEqual(paletteCollection.palettes.count, 1)
+        XCTAssertEqual(paletteCollection.palettes.staticTexts.firstMatch.label, dummyPaletteName)
         
     }
 }

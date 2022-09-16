@@ -32,6 +32,10 @@
 		38D0309F28397FF3003B90A0 /* SketchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0309E28397FF3003B90A0 /* SketchPadViewController.swift */; };
 		38E052BA28411B9100684F68 /* PaletteColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E052B928411B9100684F68 /* PaletteColorPicker.swift */; };
 		38E052BC284274EF00684F68 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E052BB284274EF00684F68 /* DummyData.swift */; };
+		38E65DCE28D44C94008C28F9 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E65DCD28D44C94008C28F9 /* Screen.swift */; };
+		38E65DD028D44D48008C28F9 /* RandomPaletteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E65DCF28D44D48008C28F9 /* RandomPaletteScreen.swift */; };
+		38E65DD228D45566008C28F9 /* SavePaletteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E65DD128D45566008C28F9 /* SavePaletteScreen.swift */; };
+		38E65DD428D456BE008C28F9 /* PaletteCollectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E65DD328D456BE008C28F9 /* PaletteCollectionScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		38D0309E28397FF3003B90A0 /* SketchPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchPadViewController.swift; sourceTree = "<group>"; };
 		38E052B928411B9100684F68 /* PaletteColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteColorPicker.swift; sourceTree = "<group>"; };
 		38E052BB284274EF00684F68 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		38E65DCD28D44C94008C28F9 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		38E65DCF28D44D48008C28F9 /* RandomPaletteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPaletteScreen.swift; sourceTree = "<group>"; };
+		38E65DD128D45566008C28F9 /* SavePaletteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePaletteScreen.swift; sourceTree = "<group>"; };
+		38E65DD328D456BE008C28F9 /* PaletteCollectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCollectionScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				385BD79628D1B670001C4E7E /* PalettePalUITests.swift */,
+				38E65DD328D456BE008C28F9 /* PaletteCollectionScreen.swift */,
+				38E65DCF28D44D48008C28F9 /* RandomPaletteScreen.swift */,
+				38E65DD128D45566008C28F9 /* SavePaletteScreen.swift */,
+				38E65DCD28D44C94008C28F9 /* Screen.swift */,
 			);
 			path = PalettePalUITests;
 			sourceTree = "<group>";
@@ -291,7 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E65DD228D45566008C28F9 /* SavePaletteScreen.swift in Sources */,
+				38E65DD428D456BE008C28F9 /* PaletteCollectionScreen.swift in Sources */,
 				385BD79728D1B670001C4E7E /* PalettePalUITests.swift in Sources */,
+				38E65DD028D44D48008C28F9 /* RandomPaletteScreen.swift in Sources */,
+				38E65DCE28D44C94008C28F9 /* Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

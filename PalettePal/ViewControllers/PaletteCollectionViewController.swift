@@ -30,6 +30,7 @@ class PaletteCollectionViewController: UIViewController, UISearchControllerDeleg
         collectionView.register(PaletteCardCell.self, forCellWithReuseIdentifier: PaletteCardCell.id)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.accessibilityIdentifier = "Palette Collection"
         
         return collectionView
     }()
